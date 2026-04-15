@@ -344,12 +344,12 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 @php
                     $birds = [
-                        ['img' => 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=300&q=80', 'name' => 'Ara ararauna'],
-                        ['img' => 'https://images.unsplash.com/photo-1560419450-b2b2a5a60a96?auto=format&fit=crop&w=300&q=80', 'name' => 'Agapornis sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=300&q=80', 'name' => 'Nymphicus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=300&q=80', 'name' => 'Psittacus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1484406566174-9da000fda645?auto=format&fit=crop&w=300&q=80', 'name' => 'Colombes'],
-                        ['img' => 'https://images.unsplash.com/photo-1598549861607-4416aefca00d?auto=format&fit=crop&w=300&q=80', 'name' => '+1200 Espèces'],
+                        ['img' => 'https://images.unsplash.com/photo-1520808663317-647b476a81b9?auto=format&fit=crop&w=400&q=80', 'name' => 'Ara ararauna'],
+                        ['img' => 'https://images.unsplash.com/photo-1591010323317-068307db4949?auto=format&fit=crop&w=400&q=80', 'name' => 'Agapornis sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1544463442-88241476100a?auto=format&fit=crop&w=400&q=80', 'name' => 'Nymphicus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1551401344-9359e8432375?auto=format&fit=crop&w=400&q=80', 'name' => 'Psittacus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1509335340156-f68800977827?auto=format&fit=crop&w=400&q=80', 'name' => 'Colombes'],
+                        ['img' => 'https://images.unsplash.com/photo-1516233501032-24659800040e?auto=format&fit=crop&w=400&q=80', 'name' => '+1200 Espèces'],
                     ];
                 @endphp
 
