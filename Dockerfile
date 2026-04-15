@@ -29,8 +29,11 @@ COPY . .
 # Installer les dépendances Laravel
 RUN composer install --no-dev --optimize-autoloader
 
+# S'assurer que la base sqlite existe
+RUN mkdir -p database && touch database/database.sqlite && chmod 777 database/database.sqlite
+
 # Fixer les permissions
-RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache database
 
 # Configurer Apache pour pointer vers /public
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
@@ -38,4 +41,4 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 EXPOSE 80
-CMD php artisan migrate --force && apache2-foreground
+CMD php artisan migrate --force && php artisan db:seed --force && apache2-foreground

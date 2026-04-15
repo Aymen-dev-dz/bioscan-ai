@@ -7,9 +7,9 @@ services:
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: false
+        value: true # Activé temporairement pour voir l'erreur
       - key: APP_KEY
-        generateValue: true
+        sync: false # Le champ sera demandé manuellement sur Render
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION
