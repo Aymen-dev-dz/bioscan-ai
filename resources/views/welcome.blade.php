@@ -86,12 +86,11 @@
                 <a href="#services" class="text-white/70 hover:text-white text-sm font-medium transition">Services</a>
                 <a href="#how" class="text-white/70 hover:text-white text-sm font-medium transition">Comment ça marche</a>
                 <a href="#species" class="text-white/70 hover:text-white text-sm font-medium transition">Espèces</a>
-                <a href="#tarifs" class="text-white/70 hover:text-white text-sm font-medium transition">Tarifs</a>
             </div>
             <div class="flex items-center gap-3">
                 <a href="{{ route('login') }}" class="text-white/80 hover:text-white font-semibold text-sm transition px-4 py-2 rounded-lg hover:bg-white/10">Connexion</a>
                 <a href="{{ route('register') }}" class="bg-bio-500 hover:bg-bio-400 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-lg shadow-bio-500/30">
-                    Démarrer Gratuit
+                    Sign Up
                 </a>
             </div>
         </div>
@@ -366,64 +365,7 @@
         </div>
     </section>
 
-    <!-- TARIFS SECTION -->
-    <section id="tarifs" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-indigo-600 font-bold text-xs uppercase tracking-widest mb-3 block">Plans</span>
-                <h2 class="font-outfit font-black text-4xl text-slate-900">Des Offres Adaptées à Chaque Besoin</h2>
-                <p class="text-slate-500 text-lg mt-4 max-w-xl mx-auto">Du test unique à la formule pour centres de conservation.</p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Standard -->
-                <div class="border border-slate-200 rounded-3xl p-8 card-hover bg-white">
-                    <div class="text-slate-400 font-bold text-xs uppercase tracking-widest mb-2">Standard</div>
-                    <div class="font-outfit font-black text-4xl text-slate-900 mb-1">15<span class="text-lg">€</span></div>
-                    <div class="text-slate-400 text-xs mb-6">par prélèvement · Résultats 4-7j</div>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-600">
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sexage PCR certifié</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Rapport PDF officiel</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Suivi temps réel</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> QR Code d'étiquetage</li>
-                    </ul>
-                    <a href="{{ route('register') }}" class="block text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition">Démarrer</a>
-                </div>
-
-                <!-- Premium - Highlighted -->
-                <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-3xl p-8 card-hover relative shadow-2xl shadow-indigo-900/30">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-bio-500 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
-                        Plus Populaire
-                    </div>
-                    <div class="text-bio-400 font-bold text-xs uppercase tracking-widest mb-2">Premium</div>
-                    <div class="font-outfit font-black text-4xl text-white mb-1">25<span class="text-lg">€</span></div>
-                    <div class="text-white/40 text-xs mb-6">par prélèvement · Résultats 48-72h</div>
-                    <ul class="space-y-3 mb-8 text-sm text-white/80">
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Tout le Standard +</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> IA Analyse Électrophorèse</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Infos sanitaires espèce</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Chat IA illimité</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Conseils croisement lignées</li>
-                    </ul>
-                    <a href="{{ route('register') }}" class="block text-center bg-bio-500 hover:bg-bio-400 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-bio-500/30">Choisir Premium</a>
-                </div>
-
-                <!-- Express -->
-                <div class="border border-slate-200 rounded-3xl p-8 card-hover bg-white">
-                    <div class="text-slate-400 font-bold text-xs uppercase tracking-widest mb-2">Express</div>
-                    <div class="font-outfit font-black text-4xl text-slate-900 mb-1">45<span class="text-lg">€</span></div>
-                    <div class="text-slate-400 text-xs mb-6">par prélèvement · Résultats 24h</div>
-                    <ul class="space-y-3 mb-8 text-sm text-slate-600">
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Tout le Premium +</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Priorité absolue en labo</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Rapport 24h garanti</li>
-                        <li class="flex gap-2"><svg class="w-4 h-4 text-bio-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Support dédié biologiste</li>
-                    </ul>
-                    <a href="{{ route('register') }}" class="block text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition">Choisir Express</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- FINAL CTA -->
     <section class="py-20 hero-bg relative overflow-hidden">
@@ -437,7 +379,7 @@
                 Créez votre compte gratuitement. Le premier prélèvement est soumis en moins de 3 minutes. Votre premier certificat arrive en quelques jours.
             </p>
             <a href="{{ route('register') }}" class="inline-flex items-center gap-3 bg-bio-500 hover:bg-bio-400 text-white font-black text-lg py-5 px-12 rounded-2xl transition shadow-xl shadow-bio-500/30 hover:-translate-y-1 transform">
-                Créer mon espace gratuit
+                Sign Up
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
         </div>
