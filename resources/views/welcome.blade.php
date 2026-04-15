@@ -151,12 +151,12 @@
                     <div class="relative">
                         <!-- Main Bird Photo (Piroki) -->
                         <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1551401344-9359e8432375?auto=format&fit=crop&w=800&q=90" 
+                            <img src="https://loremflickr.com/800/600/parrot?v=1" 
                                  alt="Gris du Gabon (Piroki) - sexage ADN" class="w-full h-80 object-cover">
                         </div>
                         <!-- Floating Lab Image -->
                         <div class="absolute -bottom-6 -left-6 w-48 h-36 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
-                            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=400&q=90" 
+                            <img src="https://loremflickr.com/400/300/laboratory?v=1" 
                                  alt="Laboratoire PCR" class="w-full h-full object-cover">
                         </div>
                         <!-- Result Badge -->
@@ -221,7 +221,7 @@
                 <!-- Service 1 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://loremflickr.com/600/400/bird?v=1" 
                              alt="Sexage ADN Oiseaux" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Sexage ADN</span>
@@ -238,7 +238,7 @@
                 <!-- Service 2 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://loremflickr.com/600/400/virus?v=1" 
                              alt="Détection Pathogènes" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Détection Pathogènes</span>
@@ -255,7 +255,7 @@
                 <!-- Service 3 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" 
+                        <img src="https://loremflickr.com/600/400/dna?v=1" 
                              alt="Paternité Génotypage" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Paternité & Génotypage</span>
@@ -344,12 +344,12 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 @php
                     $birds = [
-                        ['img' => 'https://images.unsplash.com/photo-1550853024-fae8cd4be477?w=500&auto=format', 'name' => 'Ara ararauna'],
-                        ['img' => 'https://images.unsplash.com/photo-1591010323317-068307db4949?w=500&auto=format', 'name' => 'Agapornis sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1544463442-88241476100a?w=500&auto=format', 'name' => 'Nymphicus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1551401344-9359e8432375?w=500&auto=format', 'name' => 'Psittacus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=500&auto=format', 'name' => 'Colombes'],
-                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=500&auto=format', 'name' => '+1200 Espèces'],
+                        ['img' => 'https://loremflickr.com/400/300/ara?v=1', 'name' => 'Ara ararauna'],
+                        ['img' => 'https://loremflickr.com/400/300/lovebird?v=1', 'name' => 'Agapornis sp.'],
+                        ['img' => 'https://loremflickr.com/400/300/cockatiel?v=1', 'name' => 'Nymphicus sp.'],
+                        ['img' => 'https://loremflickr.com/400/300/yaco?v=1', 'name' => 'Psittacus sp.'],
+                        ['img' => 'https://loremflickr.com/400/300/pigeon?v=1', 'name' => 'Colombes'],
+                        ['img' => 'https://loremflickr.com/400/300/parrots?v=1', 'name' => '+1200 Espèces'],
                     ];
                 @endphp
 
