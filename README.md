@@ -1,59 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BioScan AI — Plateforme de Sexage Moléculaire & Pathogènes
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![BioScan AI Banner](https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80)
 
-## About Laravel
+## 🧬 Présentation
+BioScan AI est un écosystème numérique complet dédié au **sexage moléculaire** fiable des espèces monomorphes, ainsi qu'à la **détection de pathogènes** (virus, bactéries et parasites) chez les oiseaux.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+La plateforme combine biologie moléculaire avancée, IA (Intelligence Artificielle) et technologies Web/Mobile pour offrir des analyses rapides, standardisées et accessibles aux éleveurs, vétérinaires et centres de conservation.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Fonctionnalités Clés
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Pour les Clients (Éleveurs)
+- **Soumission Intelligente** : Formulaire multi-étapes avec QR Code unique par échantillon.
+- **Scanner IA de Qualité** : Vérification par photo de la viabilité du prélèvement avant envoi.
+- **Suivi en Temps Réel** : Dashboard interactif pour suivre l'évolution de l'analyse.
+- **Rapports Certifiés** : Téléchargement de certificats PDF sécurisés après validation.
+- **Version Premium** : Assistance IA illimitée, conseils sanitaires et propositions de croisements.
 
-## Learning Laravel
+### Pour les Biologistes
+- **Console de Gestion** : Vue complète des arrivées, triée par famille (phylogénétique).
+- **Aide au Diagnostic** : Affichage automatique des **Jeux d'Amorces PCR (Primer Sets)** selon l'espèce.
+- **IA Électrophorèse** : Support à l'analyse des images de gel pour extraire les résultats.
+- **Système d'Alertes** : Détection automatique des anomalies et demandes de re-test.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🛠️ Stack Technique
+- **Framework** : Laravel 11
+- **Frontend** : Tailwind CSS, Alpine.js (Design inspiré par Iberogen)
+- **Base de données** : SQLite (Dev) / MySQL (Prod)
+- **IA** : Modèles de vision pour l'analyse de qualité et d'électrophorèse
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📦 Installation locale
+```bash
+# Cloner le projet
+git clone https://github.com/Aymen-dev-dz/bioscan-ai.git
 
-## Laravel Sponsors
+# Installer les dépendances
+composer install
+npm install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Configurer l'environnement
+cp .env.example .env
+php artisan key:generate
 
-### Premium Partners
+# Migrations & Seeders
+php artisan migrate --seed
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# Lancer le serveur
+php artisan serve
+npm run dev
+```
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+*Développé avec ❤️ pour la communauté aviaire.*
