@@ -149,10 +149,10 @@
                 <!-- Hero Image Collage -->
                 <div class="relative float-animation">
                     <div class="relative">
-                        <!-- Main Bird Photo -->
+                        <!-- Main Bird Photo (Piroki) -->
                         <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-                            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=800&q=90" 
-                                 alt="Ara bleu et jaune - sexage ADN" class="w-full h-80 object-cover">
+                            <img src="https://images.unsplash.com/photo-1551401344-9359e8432375?auto=format&fit=crop&w=800&q=90" 
+                                 alt="Gris du Gabon (Piroki) - sexage ADN" class="w-full h-80 object-cover">
                         </div>
                         <!-- Floating Lab Image -->
                         <div class="absolute -bottom-6 -left-6 w-48 h-36 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20">
