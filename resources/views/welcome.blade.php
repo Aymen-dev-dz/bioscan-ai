@@ -344,12 +344,12 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 @php
                     $birds = [
-                        ['img' => 'https://images.unsplash.com/photo-1520808663317-647b476a81b9?auto=format&fit=crop&w=400&q=80', 'name' => 'Ara ararauna'],
-                        ['img' => 'https://images.unsplash.com/photo-1591010323317-068307db4949?auto=format&fit=crop&w=400&q=80', 'name' => 'Agapornis sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1544463442-88241476100a?auto=format&fit=crop&w=400&q=80', 'name' => 'Nymphicus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1551401344-9359e8432375?auto=format&fit=crop&w=400&q=80', 'name' => 'Psittacus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1509335340156-f68800977827?auto=format&fit=crop&w=400&q=80', 'name' => 'Colombes'],
-                        ['img' => 'https://images.unsplash.com/photo-1516233501032-24659800040e?auto=format&fit=crop&w=400&q=80', 'name' => '+1200 Espèces'],
+                        ['img' => 'https://images.unsplash.com/photo-1550853024-fae8cd4be477?w=500&auto=format', 'name' => 'Ara ararauna'],
+                        ['img' => 'https://images.unsplash.com/photo-1591010323317-068307db4949?w=500&auto=format', 'name' => 'Agapornis sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1544463442-88241476100a?w=500&auto=format', 'name' => 'Nymphicus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1551401344-9359e8432375?w=500&auto=format', 'name' => 'Psittacus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=500&auto=format', 'name' => 'Colombes'],
+                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=500&auto=format', 'name' => '+1200 Espèces'],
                     ];
                 @endphp
 
