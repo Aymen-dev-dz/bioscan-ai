@@ -283,7 +283,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=700&q=85"
+                    <img src="https://loremflickr.com/800/600/laboratory,scientist?v=1"
                          alt="Laboratoire d'analyse ADN" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
                 </div>
 

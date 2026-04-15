@@ -191,7 +191,7 @@
                         
                         <div class="bg-indigo-900/10 p-5 rounded-2xl border border-indigo-900/10 flex flex-col gap-4">
                             <div class="relative w-full aspect-video bg-indigo-950 rounded-xl flex justify-center items-center group cursor-pointer overflow-hidden shadow-sm">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:opacity-80 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="absolute inset-0 bg-cover bg-center opacity-60 transition duration-700 group-hover:opacity-80 group-hover:scale-105" style="background-image: url('https://loremflickr.com/600/400/microscope?v=1');"></div>
                                 <div class="w-14 h-14 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition z-10 border border-white/40 shadow-lg">
                                     <svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
