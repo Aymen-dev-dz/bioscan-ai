@@ -27,6 +27,48 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Data Column -->
                 <div class="lg:col-span-2 space-y-8">
+                    <!-- Journey Timeline -->
+                    <div class="bg-white shadow-xl shadow-slate-200/50 sm:rounded-3xl p-8 border border-slate-100 relative overflow-hidden mb-8">
+                        <h3 class="text-xl font-bold font-outfit text-slate-800 mb-8 flex items-center gap-3">
+                            <div class="bg-indigo-50 p-2.5 rounded-xl text-indigo-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+                            </div>
+                            Parcours de l'Analyze
+                        </h3>
+
+                        <div class="relative">
+                            <div class="absolute top-5 left-8 right-8 h-0.5 bg-slate-100 hidden md:block"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10 text-center">
+                                @php
+                                    $steps = [
+                                        ['id' => 'Pending', 'label' => 'Enregistré', 'icon' => 'M12 4v16m8-8H4'],
+                                        ['id' => 'Received', 'label' => 'Réception Labo', 'icon' => 'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4'],
+                                        ['id' => 'Processing', 'label' => 'PCR & IA', 'icon' => 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z'],
+                                        ['id' => 'Completed', 'label' => 'Certificat Prêt', 'icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z']
+                                    ];
+                                    $foundCurrent = false;
+                                    $currentIndex = 0;
+                                    foreach($steps as $idx => $s) {
+                                        if($s['id'] == $sample->status) $currentIndex = $idx;
+                                    }
+                                @endphp
+
+                                @foreach($steps as $idx => $step)
+                                    @php
+                                        $isPast = $idx <= $currentIndex;
+                                        $isCurrent = $idx == $currentIndex;
+                                    @endphp
+                                    <div class="flex flex-col items-center group">
+                                        <div class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 {{ $isPast ? ($isCurrent ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-110 ring-4 ring-indigo-50' : 'bg-indigo-100 text-indigo-600') : 'bg-slate-100 text-slate-300' }}">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $step['icon'] }}"></path></svg>
+                                        </div>
+                                        <p class="mt-3 text-[10px] font-black uppercase tracking-widest {{ $isPast ? 'text-slate-800' : 'text-slate-400' }}">{{ $step['label'] }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Global Info Box -->
                     <div class="bg-white shadow-xl shadow-slate-200/50 sm:rounded-3xl p-8 border border-slate-100 relative overflow-hidden">
                         

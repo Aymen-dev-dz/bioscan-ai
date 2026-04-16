@@ -15,13 +15,20 @@ class AdminController extends Controller
             'users' => User::count(),
             'samples' => Sample::count(),
             'species' => Species::count(),
-            'completed_samples' => Sample::where('status', 'Completed')->count(),
-            'pending_samples' => Sample::where('status', 'Pending')->count(),
+            'revenue' => Sample::where('is_paid', true)->count() * 15, // 15€ per sample
+            'growth' => 24, // Simulated growth %
+        ];
+        
+        $status_dist = [
+            'pending' => Sample::where('status', 'Pending')->count(),
+            'received' => Sample::where('status', 'Received')->count(),
+            'processing' => Sample::where('status', 'Processing')->count(),
+            'completed' => Sample::where('status', 'Completed')->count(),
         ];
         
         $recent_users = User::latest()->take(5)->get();
-        $recent_samples = Sample::with(['species', 'user'])->latest()->take(10)->get();
+        $recent_samples = Sample::with(['species', 'user'])->latest()->take(5)->get();
 
-        return view('admin.index', compact('stats', 'recent_users', 'recent_samples'));
+        return view('admin.index', compact('stats', 'recent_users', 'recent_samples', 'status_dist'));
     }
 }
