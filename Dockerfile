@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Installer les dépendances système
+# Installer les dépendances système et Node.js
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     git \
+    curl \
+    && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # Configurer PHP
@@ -29,6 +32,9 @@ COPY . .
 
 # Installer les dépendances Laravel
 RUN composer install --no-dev --optimize-autoloader
+
+# Installer les dépendances Node et build les assets
+RUN npm install && npm run build
 
 # Préparer le fichier .env et générer la clé
 RUN cp .env.example .env && php artisan key:generate
