@@ -283,8 +283,8 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <img src="https://loremflickr.com/800/600/laboratory,scientist?v=1"
-                         alt="Laboratoire d'analyse ADN" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                    <img src="{{ asset('images/how_it_works.png') }}"
+                         alt="Processus de laboratoire BioScan AI" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
                 </div>
 
                 <div class="space-y-8">
