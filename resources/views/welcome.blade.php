@@ -314,16 +314,16 @@
                 <!-- Service 3 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1552084117-56a987666449?q=80&w=800&auto=format&fit=crop" 
                              alt="Paternité Génotypage" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Paternité & Génotypage</span>
                     </div>
                     <div class="p-6">
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4">Établissez ou infirmez des liens familiaux — indispensable pour les programmes de conservation et d'élevage sélectif.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">Établissez ou infirmez des liens familiaux avec une précision absolue de 99.9% grâce aux marqueurs microsatellites.</p>
                         <div class="flex items-center gap-2 text-bio-600 font-bold text-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path></svg>
-                            Profils ADN microsatellites
+                            Arbre Généalogique Certifié
                         </div>
                     </div>
                 </div>
@@ -348,42 +348,42 @@
 
                 <div class="space-y-8">
                     <div class="flex gap-6 group">
-                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 group-hover:bg-indigo-600 rounded-2xl flex items-center justify-center transition-colors duration-300">
-                            <span class="font-outfit font-black text-indigo-600 group-hover:text-white transition-colors">1</span>
+                        <div class="flex-shrink-0 w-16 h-16 bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200" alt="Step 1" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
                         </div>
                         <div>
-                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">Créez votre compte & soumettez</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">L'éleveur s'inscrit, remplie le formulaire d'espèce et reçoit automatiquement un QR Code unique imprimable pour son sachet/tube.</p>
+                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">1. Inscription & Bio-ID</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Enregistrez vos oiseaux sur la plateforme et générez vos étiquettes intelligentes avec QR Code unique.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-6 group">
-                        <div class="flex-shrink-0 w-12 h-12 bg-bio-100 group-hover:bg-bio-600 rounded-2xl flex items-center justify-center transition-colors duration-300">
-                            <span class="font-outfit font-black text-bio-600 group-hover:text-white transition-colors">2</span>
+                        <div class="flex-shrink-0 w-16 h-16 bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1596496050827-8299e0220de1?q=80&w=200" alt="Step 2" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
                         </div>
                         <div>
-                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">Envoyez le kit étiqueté</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">Glissez 3-4 plumes avec bulbe ou une goutte de sang sur papier FTA dans le sachet ZIP fourni. Expédiez le kit au laboratoire.</p>
+                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">2. Collecte des Plumes</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Prélevez 3-4 plumes avec bulbe. Pas de sang nécessaire pour le sexage basique. Expédiez par courrier simple.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-6 group">
-                        <div class="flex-shrink-0 w-12 h-12 bg-purple-100 group-hover:bg-purple-600 rounded-2xl flex items-center justify-center transition-colors duration-300">
-                            <span class="font-outfit font-black text-purple-600 group-hover:text-white transition-colors">3</span>
+                        <div class="flex-shrink-0 w-16 h-16 bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1579154273024-5e3e3b0e352b?q=80&w=200" alt="Step 3" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
                         </div>
                         <div>
-                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">PCR & Analyse IA électrophorèse</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">L'ADN est amplifié et l'électrophorèse est analysée automatiquement par notre algorithme. Le biologiste valide en un clic.</p>
+                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">3. Séquençage PCR</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Notre laboratoire amplifie l'ADN et utilise l'IA pour valider les pics d'électrophorèse en un temps record.</p>
                         </div>
                     </div>
 
                     <div class="flex gap-6 group">
-                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 group-hover:bg-rose-600 rounded-2xl flex items-center justify-center transition-colors duration-300">
-                            <span class="font-outfit font-black text-rose-600 group-hover:text-white transition-colors">4</span>
+                        <div class="flex-shrink-0 w-16 h-16 bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1586762522614-5c4651be9082?q=80&w=200" alt="Step 4" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
                         </div>
                         <div>
-                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">Certificat officiel sur votre espace</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">Le rapport PDF certifié apparaît en temps réel sur votre dashboard et est envoyé par email. Imprimable, archivable, légalement valide.</p>
+                            <h3 class="font-outfit font-bold text-xl text-slate-900 mb-2">4. Résultat Imprimable</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed">Téléchargez votre certificat sécurisé avec hologramme numérique et validation blockchain/QR.</p>
                         </div>
                     </div>
                 </div>
