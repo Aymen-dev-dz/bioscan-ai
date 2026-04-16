@@ -30,6 +30,9 @@ COPY . .
 # Installer les dépendances Laravel
 RUN composer install --no-dev --optimize-autoloader
 
+# Préparer le fichier .env et générer la clé
+RUN cp .env.example .env && php artisan key:generate
+
 # S'assurer que la base sqlite existe
 RUN mkdir -p database && touch database/database.sqlite && chmod 777 database/database.sqlite
 
