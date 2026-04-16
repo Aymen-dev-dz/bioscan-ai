@@ -280,7 +280,7 @@
                 <!-- Service 1 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://loremflickr.com/600/400/bird?v=1" 
+                        <img src="{{ asset('images/service_sexage.png') }}" 
                              alt="Sexage ADN Oiseaux" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Sexage ADN</span>
@@ -297,7 +297,7 @@
                 <!-- Service 2 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://loremflickr.com/600/400/virus?v=1" 
+                        <img src="{{ asset('images/service_pathogenes.png') }}" 
                              alt="Détection Pathogènes" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Détection Pathogènes</span>
@@ -314,7 +314,7 @@
                 <!-- Service 3 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://loremflickr.com/600/400/dna?v=1" 
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop" 
                              alt="Paternité Génotypage" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Paternité & Génotypage</span>
@@ -403,12 +403,12 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 @php
                     $birds = [
-                        ['img' => 'https://loremflickr.com/400/300/ara?v=1', 'name' => 'Ara ararauna'],
-                        ['img' => 'https://loremflickr.com/400/300/lovebird?v=1', 'name' => 'Agapornis sp.'],
-                        ['img' => 'https://loremflickr.com/400/300/cockatiel?v=1', 'name' => 'Nymphicus sp.'],
-                        ['img' => 'https://loremflickr.com/400/300/yaco?v=1', 'name' => 'Psittacus sp.'],
-                        ['img' => 'https://loremflickr.com/400/300/pigeon?v=1', 'name' => 'Colombes'],
-                        ['img' => 'https://loremflickr.com/400/300/parrots?v=1', 'name' => '+1200 Espèces'],
+                        ['img' => 'https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=400&auto=format&fit=crop', 'name' => 'Ara ararauna'],
+                        ['img' => 'https://images.unsplash.com/photo-1520108110173-08240f7ee817?q=80&w=400&auto=format&fit=crop', 'name' => 'Agapornis sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=400&auto=format&fit=crop', 'name' => 'Nymphicus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1544991583-1678da47fddd?q=80&w=400&auto=format&fit=crop', 'name' => 'Psittacus sp.'],
+                        ['img' => 'https://images.unsplash.com/photo-1522204523234-87cf9be723d3?q=80&w=400&auto=format&fit=crop', 'name' => 'Colombes'],
+                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b867ad?q=80&w=400&auto=format&fit=crop', 'name' => '+1200 Espèces'],
                     ];
                 @endphp
 
