@@ -1,143 +1,136 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-outfit font-black text-3xl text-slate-900 leading-tight">
-            {{ __('Mes Échantillons') }}
+        <h2 class="font-outfit font-black text-3xl text-white leading-tight">
+            {{ __('Plateforme Client BioScan AI') }}
         </h2>
-        <p class="text-slate-500 text-sm mt-1">Gérez vos analyses génétiques et consultez vos certificats.</p>
+        <p class="text-white/60 text-sm mt-1">Gerez vos analyses genetiques et consultez vos certificats officiels.</p>
     </x-slot>
 
     <div class="py-12 bg-slate-50 min-h-screen">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
             
             @if(session('success'))
-                <div class="mb-6 bg-green-50/80 backdrop-blur-sm border border-green-200 text-green-800 px-4 py-4 rounded-xl shadow-sm flex items-center gap-3 animate-fade-in-up">
+                <div class="mb-6 bg-green-50/80 backdrop-blur-sm border border-green-200 text-green-800 px-6 py-4 rounded-2xl shadow-sm flex items-center gap-3 animate-fade-in-up">
                     <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span class="font-medium">{{ session('success') }}</span>
+                    <span class="font-black text-sm uppercase tracking-tight">{{ session('success') }}</span>
                 </div>
             @endif
 
-            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6">
                 <div class="w-full md:w-auto">
-                    <h3 class="text-xl font-outfit font-black text-slate-900">Analyses en cours</h3>
-                    <p class="text-sm text-slate-500">Suivi temps réel de vos prélèvements génétiques.</p>
+                    <h3 class="text-2xl font-outfit font-black text-slate-900 tracking-tight">Analyses en cours</h3>
+                    <p class="text-sm text-slate-500 font-medium">Suivi temps reel de votre patrimoine genetique.</p>
                 </div>
                 
                 <div class="flex items-center gap-4 w-full md:w-auto">
-                    <!-- Search Bar -->
-                    <div class="relative w-full md:w-64 group">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <div class="relative w-full md:w-80 group">
+                        <div class="absolute inset-y-0 left-5 flex items-center pointer-events-none">
                             <svg class="h-4 w-4 text-slate-400 group-focus-within:text-indigo-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
-                        <input type="text" id="sampleSearch" placeholder="Rechercher #ID ou Espèce..." class="block w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition shadow-sm">
+                        <input type="text" id="sampleSearch" placeholder="Bio-ID ou Espece..." class="block w-full pl-12 pr-4 py-4 bg-white border-0 rounded-2xl text-sm font-medium focus:ring-4 focus:ring-indigo-500/10 transition shadow-xl shadow-indigo-900/5">
                     </div>
 
-                    <a href="{{ route('client.submit') }}" class="whitespace-nowrap inline-flex items-center justify-center px-6 py-2.5 font-bold text-white transition-all duration-200 bg-indigo-600 rounded-xl hover:bg-indigo-500 focus:outline-none shadow-md hover:shadow-indigo-500/30">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        Nouveau
+                    <a href="{{ route('client.submit') }}" class="whitespace-nowrap inline-flex items-center justify-center px-8 py-4 font-black text-[10px] uppercase tracking-[0.2em] text-white transition-all duration-300 bg-slate-900 rounded-2xl hover:bg-indigo-600 focus:outline-none shadow-xl hover:shadow-indigo-500/30 transform hover:-translate-y-1">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        Soumettre
                     </a>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                <!-- Profile Progress Card -->
-                <div class="lg:col-span-4 bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+                <div class="lg:col-span-4 bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
                     <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition"></div>
                     
-                    <div class="flex items-center gap-6 relative z-10 w-full md:w-auto">
-                        <div class="relative w-16 h-16 flex-shrink-0">
+                    <div class="flex items-center gap-8 relative z-10 w-full md:w-auto">
+                        <div class="relative w-24 h-24 flex-shrink-0">
                             <svg class="w-full h-full transform -rotate-90">
-                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-100" />
-                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="176" stroke-dashoffset="{{ 176 - (176 * $profile_progress / 100) }}" class="text-indigo-600 transition-all duration-1000 ease-out" />
+                                <circle cx="48" cy="48" r="42" stroke="currentColor" stroke-width="8" fill="transparent" class="text-slate-100" />
+                                <circle cx="48" cy="48" r="42" stroke="currentColor" stroke-width="8" fill="transparent" stroke-dasharray="264" stroke-dashoffset="{{ 264 - (264 * $profile_progress / 100) }}" class="text-indigo-600 transition-all duration-1000 ease-out" />
                             </svg>
-                            <div class="absolute inset-0 flex items-center justify-center text-xs font-black text-indigo-700 font-outfit">
-                                {{ $profile_progress }}%
+                            <div class="absolute inset-0 flex items-center justify-center text-lg font-black text-slate-900 font-outfit">
+                                {{ $profile_progress }}<span class="text-[10px] ml-0.5">%</span>
                             </div>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-800">Complétion du Profil Éleveur</h4>
-                            <p class="text-xs text-slate-500">Ajoutez votre affixe et vos coordonnées pour des rapports certifiés complets.</p>
+                            <h4 class="font-black text-slate-900 text-xl font-outfit uppercase italic tracking-tight italic">Profil <span class="text-indigo-600">Eleveur</span></h4>
+                            <p class="text-xs text-slate-500 font-medium mt-1">Ajoutez votre affixe pour des rapports officiels certifies.</p>
                         </div>
                     </div>
 
                     @if($profile_progress < 100)
                         <div class="relative z-10 w-full md:w-auto">
-                            <a href="{{ route('profile.edit') }}" class="inline-flex items-center px-6 py-2.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold rounded-xl text-sm transition transition-transform hover:-translate-y-0.5">
-                                Finaliser mon profil
+                            <a href="{{ route('profile.edit') }}" class="inline-flex items-center px-8 py-3.5 bg-indigo-600 hover:bg-slate-900 text-white font-black text-[10px] uppercase tracking-widest rounded-xl transition transition-transform hover:-translate-y-1 shadow-lg shadow-indigo-600/20">
+                                Completer l'Espace
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </a>
                         </div>
                     @else
-                        <div class="relative z-10 flex items-center gap-2 text-emerald-600 bg-emerald-50 px-5 py-2.5 rounded-xl font-bold text-sm">
+                        <div class="relative z-10 flex items-center gap-3 text-emerald-600 bg-emerald-50 px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] border border-emerald-100">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Profil Vérifié & Complet
+                            Ecosysteme Certifie
                         </div>
                     @endif
                 </div>
 
                 <div class="lg:col-span-3">
-                <div class="lg:col-span-3">
-                    <!-- Desktop Table -->
-                    <div class="hidden md:block bg-white overflow-hidden shadow-xl shadow-slate-200/50 sm:rounded-3xl border border-slate-100">
+                    <div class="hidden md:block bg-white overflow-hidden shadow-2xl shadow-indigo-900/5 sm:rounded-[2.5rem] border border-slate-100">
                         @if(isset($samples) && $samples->count() > 0)
-                            <table class="min-w-full divide-y divide-slate-100">
-                                <thead class="bg-slate-50/80">
-                                    <tr>
-                                        <th class="px-6 py-5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">ID / Date</th>
-                                        <th class="px-6 py-5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Espèce (Species)</th>
-                                        <th class="px-6 py-5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Type</th>
-                                        <th class="px-6 py-5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Progression labo</th>
-                                        <th class="px-6 py-5 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">Résultat Final</th>
-                                        <th class="px-6 py-5 text-right text-xs font-bold text-slate-500 uppercase tracking-wider">Action</th>
+                            <table class="min-w-full">
+                                <thead>
+                                    <tr class="bg-slate-50/50">
+                                        <th class="px-8 py-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Bio-ID / Cycle</th>
+                                        <th class="px-8 py-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Specification</th>
+                                        <th class="px-8 py-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Support</th>
+                                        <th class="px-8 py-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Statut</th>
+                                        <th class="px-8 py-6 text-left text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Verdict ADN</th>
+                                        <th class="px-8 py-6 text-right text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Console</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-100 bg-white">
                                     @foreach($samples as $sample)
-                                        <tr class="hover:bg-slate-50/60 transition-colors group">
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm font-bold text-slate-900 font-mono bg-slate-100 px-2 py-0.5 rounded inline-flex">#{{ $sample->id }}</div>
-                                                <div class="text-xs text-slate-500 mt-1">{{ $sample->created_at->format('d M, Y') }}</div>
+                                        <tr class="hover:bg-slate-50/50 transition-all group">
+                                            <td class="px-8 py-6 whitespace-nowrap">
+                                                <div class="text-xs font-black text-indigo-600 font-mono bg-indigo-50 px-3 py-1.5 rounded-lg inline-flex tracking-widest border border-indigo-100">#{{ $sample->id }}</div>
+                                                <div class="text-[10px] font-bold text-slate-400 mt-2 uppercase tracking-wider">{{ $sample->created_at->format('d M, Y') }}</div>
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm font-bold text-slate-900">{{ $sample->species->name }}</div>
-                                                <div class="text-xs text-slate-400 italic">{{ $sample->species->family }}</div>
+                                            <td class="px-8 py-6 whitespace-nowrap">
+                                                <div class="text-sm font-black text-slate-900 font-outfit uppercase tracking-tight italic">{{ $sample->species->name }}</div>
+                                                <div class="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-widest">{{ $sample->species->family }}</div>
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                                            <td class="px-8 py-6 whitespace-nowrap">
                                                 @if($sample->sample_type == 'feather')
-                                                    <span class="px-3 py-1 inline-flex text-xs font-semibold rounded-full bg-sky-50 text-sky-700 border border-sky-100">
-                                                        🪶 Plume
-                                                    </span>
+                                                    <span class="px-3 py-1 inline-flex text-[9px] font-black uppercase tracking-widest rounded-lg bg-sky-50 text-sky-700 border border-sky-100">Plume</span>
                                                 @else
-                                                    <span class="px-3 py-1 inline-flex text-xs font-semibold rounded-full bg-rose-50 text-rose-700 border border-rose-100">
-                                                        🩸 Sang
-                                                    </span>
+                                                    <span class="px-3 py-1 inline-flex text-[9px] font-black uppercase tracking-widest rounded-lg bg-rose-50 text-rose-700 border border-rose-100">Sang</span>
                                                 @endif
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
+                                            <td class="px-8 py-6 whitespace-nowrap">
                                                 @php
                                                     $color = 'slate';
-                                                    $label = 'En Attente';
-                                                    if($sample->status == 'Received') { $color = 'blue'; $label = 'Reçu Labo'; }
-                                                    if($sample->status == 'Processing') { $color = 'amber'; $label = 'Analyse PCR'; }
-                                                    if($sample->status == 'Completed') { $color = 'emerald'; $label = 'Validé'; }
+                                                    $label = 'Waiting';
+                                                    if($sample->status == 'Received') { $color = 'blue'; $label = 'Received'; }
+                                                    if($sample->status == 'Processing') { $color = 'amber'; $label = 'PCR Lab'; }
+                                                    if($sample->status == 'Completed') { $color = 'emerald'; $label = 'Certified'; }
                                                 @endphp
-                                                <span class="px-3 py-1.5 inline-flex items-center gap-1.5 text-xs font-bold rounded-full bg-{{ $color }}-50 text-{{ $color }}-700 border border-{{ $color }}-200">
+                                                <span class="px-4 py-1.5 inline-flex items-center gap-2 text-[10px] font-black rounded-xl bg-{{ $color }}-50 text-{{ $color }}-700 border border-{{ $color }}-200 uppercase tracking-widest">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-{{ $color }}-500 animate-pulse"></div>
                                                     {{ $label }}
                                                 </span>
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900 font-bold">
+                                            <td class="px-8 py-6 whitespace-nowrap text-sm text-slate-900 font-black font-outfit tracking-tighter italic">
                                                 @if($sample->status === 'Completed' && $sample->result)
                                                     @if(!$sample->is_paid)
-                                                        <span class="text-orange-500 text-xs">Paiement requis</span>
+                                                        <span class="text-orange-500 text-[10px] uppercase font-black tracking-widest bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100">Attente Paiement</span>
                                                     @else
-                                                        {{ $sample->result->sex_result }}
+                                                        <span class="text-indigo-600">{{ $sample->result->sex_result }}</span>
                                                     @endif
                                                 @else
-                                                    <span class="text-slate-300">-</span>
+                                                    <span class="text-slate-300 font-normal tracking-widest">...</span>
                                                 @endif
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('client.sample.show', $sample->id) }}" class="text-indigo-600 hover:text-indigo-900">
-                                                    Détails
+                                            <td class="px-8 py-6 whitespace-nowrap text-right">
+                                                <a href="{{ route('client.sample.show', $sample->id) }}" class="inline-flex items-center justify-center p-3 text-slate-400 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50 rounded-xl transition group-hover:bg-indigo-600 group-hover:text-white">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                                 </a>
                                             </td>
                                         </tr>
@@ -147,14 +140,16 @@
                         @endif
                     </div>
 
-                    <!-- Mobile Cards -->
-                    <div class="md:hidden space-y-4">
+                    <div class="md:hidden space-y-6">
                         @foreach($samples as $sample)
-                            <div class="bg-white p-6 rounded-3xl shadow-md border border-slate-100">
-                                <div class="flex justify-between items-start mb-4">
+                            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-indigo-900/5 border border-slate-100">
+                                <div class="flex justify-between items-start mb-6">
                                     <div>
-                                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">#{{ $sample->id }} • {{ $sample->created_at->format('d/m/Y') }}</div>
-                                        <h4 class="font-bold text-slate-800 text-lg">{{ $sample->species->name }}</h4>
+                                        <div class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-2">
+                                            <div class="w-1 h-1 bg-indigo-500 rounded-full"></div>
+                                            #{{ $sample->id }} • {{ $sample->created_at->format('d/m/Y') }}
+                                        </div>
+                                        <h4 class="font-black text-slate-900 text-xl font-outfit uppercase italic tracking-tight italic">{{ $sample->species->name }}</h4>
                                     </div>
                                     @php
                                         $color = 'slate';
@@ -162,78 +157,79 @@
                                         if($sample->status == 'Processing') $color = 'amber';
                                         if($sample->status == 'Completed') $color = 'emerald';
                                     @endphp
-                                    <span class="px-2 py-1 text-[10px] font-black uppercase tracking-widest rounded-lg bg-{{ $color }}-100 text-{{ $color }}-700">
+                                    <span class="px-4 py-1.5 text-[9px] font-black uppercase tracking-widest rounded-xl bg-{{ $color }}-100 text-{{ $color }}-700 border border-{{ $color }}-200">
                                         {{ $sample->status }}
                                     </span>
                                 </div>
-                                <div class="flex justify-between items-center bg-slate-50 p-3 rounded-2xl">
-                                    <div class="text-sm font-bold text-slate-600">Résultat:</div>
-                                    <div class="font-black text-indigo-600">
+                                <div class="flex justify-between items-center bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                                    <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest">VERDICT ADN</div>
+                                    <div class="font-black text-indigo-600 font-outfit text-lg tracking-tight italic uppercase">
                                         @if($sample->status === 'Completed' && $sample->result)
                                             @if(!$sample->is_paid)
-                                                À payer
+                                                PAIEMENT REQUIS
                                             @else
                                                 {{ $sample->result->sex_result }}
                                             @endif
                                         @else
-                                            Analyse en cours
+                                            IN PROGRESS
                                         @endif
                                     </div>
                                 </div>
-                                <a href="{{ route('client.sample.show', $sample->id) }}" class="mt-4 block w-full bg-slate-900 text-white text-center py-3 rounded-xl font-bold shadow-lg shadow-slate-900/10">
-                                    Voir les détails
+                                <a href="{{ route('client.sample.show', $sample->id) }}" class="mt-6 block w-full bg-slate-900 text-white text-center py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-slate-900/20 transform active:scale-95 transition">
+                                    Explorer l'Analyse
                                 </a>
                             </div>
                         @endforeach
                     </div>
 
                     @if($samples->isEmpty())
-                        <div class="bg-white p-12 rounded-3xl text-center border border-slate-100">
-                            <p class="text-slate-500">Aucun échantillon à afficher.</p>
+                        <div class="bg-white p-20 rounded-[3rem] text-center border border-slate-100 border-dashed border-2">
+                            <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            </div>
+                            <h4 class="text-xl font-black text-slate-900 font-outfit italic">Bio-Portfolio Vide</h4>
+                            <p class="text-slate-400 text-sm mt-2 font-medium">Commencez votre premiere analyse genetique des maintenant.</p>
                         </div>
                     @endif
                 </div>
 
-                <!-- BioScan PRO Card -->
-                <div class="space-y-6">
-                    <div class="bg-indigo-950 rounded-[2rem] shadow-xl p-8 text-white relative overflow-hidden group">
+                <div class="space-y-8">
+                    <div class="bg-indigo-950 rounded-[2.5rem] shadow-2xl p-10 text-white relative overflow-hidden group">
                         <div class="absolute right-0 top-0 w-32 h-32 bg-bio-400/20 rounded-full blur-2xl group-hover:bg-bio-400/30 transition duration-500"></div>
                         <div class="relative z-10">
-                            <div class="flex items-center gap-2 mb-4">
-                                <svg class="w-6 h-6 text-bio-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                <h3 class="font-black font-outfit text-xl tracking-tight uppercase">BioScan <span class="text-bio-400">PRO</span></h3>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="bg-bio-500 p-2 rounded-xl text-white shadow-lg shadow-bio-500/20">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h3 class="font-black font-outfit text-2xl tracking-tight uppercase italic italic">BioScan <span class="text-bio-400">PRO</span></h3>
                             </div>
-                            <p class="text-sm text-indigo-100/70 mb-8 leading-relaxed">
-                                Débloquez le potentiel génétique de votre élevage.
+                            <p class="text-xs text-indigo-100/70 mb-10 leading-relaxed font-medium uppercase tracking-widest">
+                                DNA INTELLIGENCE FOR ELITE BREEDERS
                             </p>
-                            <ul class="space-y-4 mb-10">
-                                <li class="flex items-start gap-2 text-xs font-medium">
-                                    <svg class="w-4 h-4 text-bio-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    Détection auto de maladies infectieuses
+                            <ul class="space-y-6 mb-12">
+                                @foreach(['Health Screening Tool', 'AI Mating Suggester', 'Priority PCR Lane'] as $feature)
+                                <li class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-indigo-200">
+                                    <div class="w-5 h-5 rounded-full bg-bio-400/20 flex items-center justify-center text-bio-400 shrink-0">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                                    </div>
+                                    {{ $feature }}
                                 </li>
-                                <li class="flex items-start gap-2 text-xs font-medium">
-                                    <svg class="w-4 h-4 text-bio-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    Suggestions IA de croisements de lignées
-                                </li>
-                                <li class="flex items-start gap-2 text-xs font-medium">
-                                    <svg class="w-4 h-4 text-bio-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                    Assistant IA illimité (Expertise Labo)
-                                </li>
+                                @endforeach
                             </ul>
-                            <button class="w-full bg-bio-500 hover:bg-bio-400 text-white font-black py-3 rounded-xl transition shadow-lg shadow-bio-500/20">
-                                Passer en PRO
+                            <button class="w-full bg-bio-500 hover:bg-white hover:text-indigo-950 text-white font-black py-5 rounded-[1.5rem] transition shadow-2xl shadow-bio-500/40 uppercase tracking-[0.2em] text-[10px]">
+                                Upgrade Ecosystem
                             </button>
                         </div>
                     </div>
 
-                    <a href="{{ route('client.instructions') }}" class="block bg-white p-6 rounded-3xl shadow-lg border border-slate-100 hover:shadow-xl transition group">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-indigo-100 p-3 rounded-2xl text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition">
+                    <a href="{{ route('client.instructions') }}" class="block bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl transition group">
+                        <div class="flex items-center gap-6">
+                            <div class="bg-indigo-50 p-4 rounded-2xl text-indigo-600 group-hover:bg-slate-900 group-hover:text-white transition shadow-sm">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Guide PDF</h4>
-                                <p class="text-xs text-slate-500">Protocoles de prélèvement</p>
+                                <h4 class="font-black text-slate-900 font-outfit uppercase tracking-tight">Protocoles Bio</h4>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Guide de prelevement</p>
                             </div>
                         </div>
                     </a>
@@ -243,33 +239,19 @@
         </div>
     </div>
 
-    <!-- Floating AI Assistant Button -->
-    <a href="{{ route('client.instructions') }}" class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-bio-400 to-indigo-600 rounded-full flex items-center justify-center text-white shadow-2xl shadow-indigo-500/40 hover:scale-110 transition-transform cursor-pointer animate-bounce-slow z-50">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+    <!-- AI Overlay -->
+    <a href="{{ route('client.instructions') }}" class="fixed bottom-10 right-10 w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center text-white shadow-[0_0_50px_rgba(79,70,229,0.3)] hover:scale-110 transition z-50 group border border-white/10">
+        <svg class="w-10 h-10 group-hover:text-bio-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <div class="absolute -top-1 -right-1 w-5 h-5 bg-green-500 border-4 border-slate-900 rounded-full"></div>
     </a>
 
     <script>
         document.getElementById('sampleSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            
-            // Filter Desktop Table
             const desktopRows = document.querySelectorAll('tbody tr');
-            desktopRows.forEach(row => {
-                const text = row.innerText.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
-
-            // Filter Mobile Cards
+            desktopRows.forEach(row => { row.style.display = row.innerText.toLowerCase().includes(searchTerm) ? '' : 'none'; });
             const mobileCards = document.querySelectorAll('.md\\:hidden > div');
-            mobileCards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                card.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
+            mobileCards.forEach(card => { card.style.display = card.innerText.toLowerCase().includes(searchTerm) ? '' : 'none'; });
         });
     </script>
-</x-app-layout>
-            
-        </div>
-    </div>
 </x-app-layout>

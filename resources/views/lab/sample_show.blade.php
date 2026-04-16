@@ -12,197 +12,198 @@
     </x-slot>
 
     <div class="py-12 bg-slate-50 min-h-screen">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
             
             @if(session('success'))
-                <div class="mb-6 bg-green-50 backdrop-blur-sm border border-green-200 text-green-800 px-4 py-4 rounded-xl shadow-sm flex items-center gap-3">
+                <div class="mb-6 bg-green-50/80 backdrop-blur-sm border border-green-200 text-green-800 px-6 py-4 rounded-2xl shadow-sm flex items-center gap-3 animate-fade-in-up">
                     <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span class="font-medium">{{ session('success') }}</span>
+                    <span class="font-black text-sm uppercase tracking-tight">{{ session('success') }}</span>
                 </div>
             @endif
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Info & Status Column -->
-                <div class="space-y-6">
-                    <div class="bg-white shadow-xl shadow-slate-200/50 sm:rounded-3xl p-6 border border-slate-100 border-t-4 border-t-indigo-500">
-                        <h3 class="text-lg font-bold font-outfit text-slate-800 mb-4 pb-2 border-b border-slate-100">Métadonnées</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Data & Telemetry Column -->
+                <div class="space-y-8">
+                    <div class="bg-white shadow-xl shadow-indigo-900/5 sm:rounded-[2.5rem] p-8 border border-slate-100 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl rotate-45 group-hover:bg-indigo-500/10 transition duration-700"></div>
                         
-                        <div class="space-y-4">
+                        <h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-8 flex items-center gap-2">
+                            <div class="w-1 h-1 bg-indigo-500 rounded-full"></div>
+                            Paramètres Bio-Moléculaires
+                        </h3>
+                        
+                        <div class="space-y-6">
                             <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Espèce / Famille</p>
-                                <p class="text-sm font-bold text-slate-900">{{ $sample->species->name }}</p>
-                                <p class="text-xs text-slate-500">{{ $sample->species->family }}</p>
+                                <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1.5">Taxonomie</p>
+                                <p class="text-lg font-black text-slate-900 font-outfit uppercase tracking-tight italic">{{ $sample->species->name }}</p>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ $sample->species->family }}</p>
                             </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                    <p class="text-[8px] text-slate-400 font-black uppercase tracking-widest mb-1">Amorce (Primer)</p>
+                                    <p class="text-xs font-mono font-black text-indigo-600 truncate">{{ $sample->species->primer_set ?? 'STD-X1' }}</p>
+                                </div>
+                                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                    <p class="text-[8px] text-slate-400 font-black uppercase tracking-widest mb-1">Qualité Prélève.</p>
+                                    <p class="text-[10px] font-black text-slate-700 uppercase">{{ $sample->sample_type }} x{{ $sample->quantity }}</p>
+                                </div>
+                            </div>
+
                             <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Type Prélèvement</p>
-                                <p class="text-sm font-medium text-slate-800 capitalize">{{ $sample->sample_type }} x{{ $sample->quantity }}</p>
+                                <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-2">Propriétaire (Éleveur)</p>
+                                <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                    <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center font-black text-[10px] text-indigo-600">
+                                        {{ substr($sample->user->name, 0, 1) }}
+                                    </div>
+                                    <p class="text-xs font-black text-slate-900 uppercase tracking-tight">{{ $sample->user->name }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Jeu d'Amorces PCR</p>
-                                <p class="text-sm font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded inline-block">{{ $sample->species->primer_set ?? 'Non défini' }}</p>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Localisation Espèce</p>
-                                @if($sample->species->is_local)
-                                    <span class="inline-flex text-xs font-bold px-2 py-1 bg-green-100 text-green-700 rounded-lg">📍 Faune Locale</span>
-                                @else
-                                    <span class="inline-flex text-xs font-bold px-2 py-1 bg-slate-100 text-slate-700 rounded-lg">Exotique</span>
-                                @endif
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Client (Éleveur)</p>
-                                <p class="text-sm font-medium text-slate-800">{{ $sample->user->name }}</p>
-                            </div>
+
                             @if($sample->notes)
-                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-100 mt-2 md:col-span-2">
-                                <p class="text-xs text-amber-600 font-bold uppercase mb-1 flex items-center gap-1">
+                            <div class="bg-amber-50/50 p-5 rounded-3xl border border-amber-100 mt-4">
+                                <p class="text-[9px] text-amber-600 font-black uppercase tracking-widest mb-2 flex items-center gap-1">
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Note Client
+                                    Note de Terrain
                                 </p>
-                                <p class="text-xs font-medium text-amber-900">{{ $sample->notes }}</p>
+                                <p class="text-xs font-bold text-amber-900 italic leading-relaxed">"{{ $sample->notes }}"</p>
                             </div>
                             @endif
 
                             @if($sample->pre_scan_image_path)
-                            <div class="mt-4 md:col-span-2 border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm">
-                                <div class="bg-indigo-50 px-4 py-2 border-b border-slate-200">
-                                    <p class="text-xs font-bold text-indigo-700 uppercase tracking-widest flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
-                                        Cliché Pré-Envoi du Client
-                                    </p>
+                            <div class="mt-6 border border-slate-200 rounded-[2rem] overflow-hidden bg-white shadow-xl shadow-indigo-900/5 group">
+                                <div class="bg-slate-900 px-5 py-3 border-b border-white/5 flex justify-between items-center">
+                                    <p class="text-[9px] font-black text-white/40 uppercase tracking-[0.2em]">VISUAL_TELEMETRY_01</p>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></div>
                                 </div>
-                                <div class="p-2">
-                                    <a href="{{ Storage::url($sample->pre_scan_image_path) }}" target="_blank">
-                                        <img src="{{ Storage::url($sample->pre_scan_image_path) }}" alt="Photo Client" class="w-full h-auto rounded-lg hover:opacity-90 transition">
+                                <div class="p-4 bg-slate-100">
+                                    <a href="{{ Storage::url($sample->pre_scan_image_path) }}" target="_blank" class="block relative overflow-hidden rounded-2xl">
+                                        <img src="{{ Storage::url($sample->pre_scan_image_path) }}" alt="Photo Client" class="w-full h-auto transform group-hover:scale-105 transition duration-700 grayscale hover:grayscale-0">
                                     </a>
                                 </div>
                             </div>
                             @endif
                         </div>
 
-                        <form action="{{ route('lab.sample.status', $sample->id) }}" method="POST" class="mt-6 border-t border-slate-100 pt-4 bg-slate-50 -mx-6 -mb-6 p-6 rounded-b-3xl">
+                        <form action="{{ route('lab.sample.status', $sample->id) }}" method="POST" class="mt-10 pt-8 border-t border-slate-100 space-y-4">
                             @csrf
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Cycle Labo (Statut)</label>
-                            <div class="flex gap-2">
-                                <select name="status" class="block w-full border-slate-200 bg-white focus:border-indigo-500 focus:ring-indigo-500 rounded-lg shadow-sm sm:text-sm">
+                            <label class="block text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">Flux Logistique (Statut)</label>
+                            <div class="flex gap-3">
+                                <select name="status" class="block w-full border-0 bg-slate-50 focus:ring-4 focus:ring-indigo-500/10 rounded-2xl text-[10px] font-black uppercase tracking-widest h-14">
                                     <option value="Pending" {{ $sample->status == 'Pending' ? 'selected' : '' }}>Pending</option>
                                     <option value="Received" {{ $sample->status == 'Received' ? 'selected' : '' }}>Received</option>
                                     <option value="Processing" {{ $sample->status == 'Processing' ? 'selected' : '' }}>Processing</option>
                                     <option value="Completed" {{ $sample->status == 'Completed' ? 'selected' : '' }}>Completed</option>
                                 </select>
-                                <button type="submit" class="bg-slate-900 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition">Sauver</button>
+                                <button type="submit" class="bg-slate-900 hover:bg-indigo-600 text-white font-black text-[10px] uppercase tracking-widest px-6 rounded-2xl shadow-xl transition active:scale-95">Update</button>
                             </div>
                         </form>
                     </div>
 
-                    <!-- Simulate AI module Upload -->
-                    <div class="bg-gradient-to-br from-indigo-900 to-slate-900 shadow-xl sm:rounded-3xl p-6 text-white text-center relative overflow-hidden group">
-                        <div class="absolute right-0 top-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl group-hover:bg-indigo-500/40 transition duration-500"></div>
-                        <h3 class="font-black font-outfit text-lg mb-2 relative z-10">Module IA (BioScan Visio)</h3>
-                        <p class="text-xs text-indigo-200/80 mb-4 relative z-10 leading-relaxed">
-                            L'upload de l'image de gel d'électrophorèse dans le formulaire d'analyse déclenchera automatiquement le parsing de notre modèle de machine learning.
-                        </p>
-                        <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
-                            <svg class="h-8 w-8 text-indigo-300 mx-auto mb-2 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                            </svg>
-                            <span class="text-xs font-bold uppercase tracking-widest text-indigo-200">Prêt à analyser</span>
+                    <!-- AI Compute Pulse -->
+                    <div class="bg-indigo-950 shadow-2xl shadow-indigo-950/40 rounded-[2.5rem] p-10 text-white relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent"></div>
+                        <div class="relative z-10 flex flex-col items-center text-center">
+                            <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition duration-500">
+                                <svg class="h-10 w-10 text-indigo-400 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-black font-outfit text-xl mb-3 tracking-tight uppercase italic italic">BioScan <span class="text-indigo-400">Compute</span></h3>
+                            <p class="text-[10px] text-indigo-200/50 font-medium uppercase tracking-[0.2em] leading-relaxed">
+                                Upload d'électrophorèse <br/>Prêt pour parsing IA
+                            </p>
                         </div>
                     </div>
-
-                    @if(optional($sample->result)->quality_check == 'Bad' || optional($sample->result)->sex_result == 'Inconclusive' || (optional($sample->result)->confidence_score > 0 && optional($sample->result)->confidence_score < 70))
-                        <div class="bg-rose-50 border border-rose-200 p-5 rounded-2xl text-rose-800 shadow-sm animate-pulse-slow">
-                            <div class="flex items-center gap-2 mb-2">
-                                <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                                <h4 class="font-bold">Alerte IA Sanitaire</h4>
-                            </div>
-                            <p class="text-sm font-medium">La qualité biochimique ou la fiabilité IA est insuffisante. Veuillez précipiter un nouvel échantillon ou relancer l'amplification PCR. Un test sanitaire est peut-être requis.</p>
-                            <button class="mt-3 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold px-4 py-2 rounded-lg w-full transition">Demander un nouveau prélèvement</button>
-                        </div>
-                    @endif
                 </div>
 
-                <!-- Analysis Form Column -->
+                <!-- Analysis Terminal Column -->
                 <div class="lg:col-span-2">
-                    <div class="bg-white shadow-xl shadow-slate-200/50 sm:rounded-3xl p-8 border border-slate-100 relative">
-                        <h3 class="text-2xl font-bold font-outfit text-slate-800 mb-6 pb-4 border-b border-slate-100 flex items-center gap-3">
-                            <span class="bg-indigo-50 text-indigo-600 p-2 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                            </span>
-                            Édition du Rapport d'Analyse (PCR / ADN)
-                        </h3>
+                    <div class="bg-white shadow-2xl shadow-indigo-900/5 sm:rounded-[3rem] p-10 border border-slate-100 relative group">
+                        <div class="flex items-center justify-between mb-10 pb-6 border-b border-slate-50">
+                            <div>
+                                <h3 class="text-2xl font-black font-outfit text-slate-900 uppercase italic tracking-tight italic">Console <span class="text-indigo-600">Analytique</span></h3>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Séquençage & Certification de l'échantillon</p>
+                            </div>
+                            <div class="bg-indigo-50 text-indigo-600 px-5 py-2.5 rounded-2xl font-mono text-xs font-black tracking-widest border border-indigo-100">
+                                REF-{{ $sample->id }}-{{ date('Y') }}
+                            </div>
+                        </div>
                         
-                        <form action="{{ route('lab.sample.analyze', $sample->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('lab.sample.analyze', $sample->id) }}" method="POST" enctype="multipart/form-data" class="space-y-10">
                             @csrf
                             
-                            <!-- Electrophoresis Image Upload -->
-                            <div class="mb-8">
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Cliché Gel Électrophorèse (Optionnel)</label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-slate-200 border-dashed rounded-2xl hover:border-indigo-400 hover:bg-indigo-50/50 transition">
-                                    <div class="space-y-1 text-center">
-                                        <svg class="mx-auto h-12 w-12 text-slate-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <div class="flex text-sm text-slate-600 justify-center mt-2">
-                                            <label for="gel_image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                                <span>Télécharger un fichier</span>
+                            <!-- Dropzone Style Upload -->
+                            <div>
+                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Résultat Visuel (Gel Electrophorèse)</label>
+                                <div class="relative group/zone">
+                                    <div class="absolute inset-0 bg-indigo-600/5 rounded-[2rem] border-2 border-indigo-200 border-dashed group-hover/zone:border-indigo-400 group-hover/zone:bg-indigo-600/10 transition-all duration-300"></div>
+                                    <div class="relative px-8 py-12 flex flex-col items-center justify-center text-center cursor-pointer">
+                                        <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-6 group-hover/zone:scale-110 transition duration-500">
+                                            <svg class="h-8 w-8 text-indigo-600" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                                <path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-2">
+                                            <label for="gel_image" class="relative cursor-pointer">
+                                                <span class="text-sm font-black text-slate-900 uppercase tracking-tight">Déposer le Cliché</span>
                                                 <input id="gel_image" name="gel_image" type="file" class="sr-only" accept="image/*">
                                             </label>
-                                            <p class="pl-1">ou glisser-déposer</p>
+                                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">TIFF, PNG or RAW max 5MB</p>
                                         </div>
-                                        <p class="text-xs text-slate-500">PNG, JPG, GIF jusqu'à 2MB</p>
                                     </div>
                                 </div>
                                 @if(optional($sample->result)->gel_image_path)
-                                    <p class="text-xs font-bold text-emerald-600 mt-2 flex items-center gap-1">
+                                    <p class="text-[10px] font-black text-emerald-600 mt-4 flex items-center gap-2 uppercase tracking-widest">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                        Une image est déjà stockée pour ce prélèvement.
+                                        Archive visuelle détectée
                                     </p>
                                 @endif
-                                @error('gel_image') <span class="text-red-500 text-xs mt-1 block font-medium">{{ $message }}</span> @enderror
+                                @error('gel_image') <span class="text-red-500 text-[10px] font-bold mt-2 block uppercase tracking-widest">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Conclusion Sexe</label>
-                                    <select name="sex_result" required class="block w-full border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm transition">
-                                        <option value="">Sélectionner...</option>
-                                        <option value="Male" {{ optional($sample->result)->sex_result == 'Male' ? 'selected' : '' }}>Mâle</option>
-                                        <option value="Female" {{ optional($sample->result)->sex_result == 'Female' ? 'selected' : '' }}>Femelle</option>
-                                        <option value="Inconclusive" {{ optional($sample->result)->sex_result == 'Inconclusive' ? 'selected' : '' }}>Non Concluant (Erreur/Relancer)</option>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Verdict Biologique</label>
+                                    <select name="sex_result" required class="block w-full border-0 bg-slate-50 focus:ring-4 focus:ring-indigo-500/10 rounded-2xl text-[10px] font-black uppercase tracking-widest h-16">
+                                        <option value="">Conclusion...</option>
+                                        <option value="Male" {{ optional($sample->result)->sex_result == 'Male' ? 'selected' : '' }}>MALE (+/Y)</option>
+                                        <option value="Female" {{ optional($sample->result)->sex_result == 'Female' ? 'selected' : '' }}>FEMALE (+/+)</option>
+                                        <option value="Inconclusive" {{ optional($sample->result)->sex_result == 'Inconclusive' ? 'selected' : '' }}>NON CONCLUANT</option>
                                     </select>
                                 </div>
 
-                                <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Précision IA / Labo (%)</label>
-                                    <input type="number" name="confidence_score" min="0" max="100" value="{{ optional($sample->result)->confidence_score ?? 99 }}" required class="block w-full border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm transition">
+                                <div class="space-y-4">
+                                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Indice de Confiance (%)</label>
+                                    <input type="number" name="confidence_score" min="0" max="100" value="{{ optional($sample->result)->confidence_score ?? 100 }}" required class="block w-full border-0 bg-slate-50 focus:ring-4 focus:ring-indigo-500/10 rounded-2xl text-[10px] font-black uppercase tracking-widest h-16 px-6">
                                 </div>
 
-                                <div class="md:col-span-2">
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Qualité Biochimique Constatée</label>
-                                    <div class="flex gap-6">
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="quality_check" value="Good" {{ optional($sample->result)->quality_check == 'Good' || !optional($sample->result)->quality_check ? 'checked' : '' }} class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                            <span class="text-sm font-medium text-slate-700">Exploitable (Good)</span>
+                                <div class="md:col-span-2 space-y-4">
+                                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Contrôle Qualité Biochimique</label>
+                                    <div class="flex gap-10 bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                        <label class="flex items-center gap-3 cursor-pointer group/radio">
+                                            <input type="radio" name="quality_check" value="Good" {{ optional($sample->result)->quality_check == 'Good' || !optional($sample->result)->quality_check ? 'checked' : '' }} class="w-5 h-5 text-emerald-600 focus:ring-emerald-500/10 border-slate-300">
+                                            <span class="text-[10px] font-black text-slate-700 uppercase tracking-widest group-hover/radio:text-emerald-600 transition">OPTIMALE (GOOD)</span>
                                         </label>
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="quality_check" value="Bad" {{ optional($sample->result)->quality_check == 'Bad' ? 'checked' : '' }} class="h-4 w-4 text-rose-600 focus:ring-rose-500 border-slate-300">
-                                            <span class="text-sm font-medium text-slate-700">Dégradé / Peu exploitable (Bad)</span>
+                                        <label class="flex items-center gap-3 cursor-pointer group/radio">
+                                            <input type="radio" name="quality_check" value="Bad" {{ optional($sample->result)->quality_check == 'Bad' ? 'checked' : '' }} class="w-5 h-5 text-rose-600 focus:ring-rose-500/10 border-slate-300">
+                                            <span class="text-[10px] font-black text-slate-700 uppercase tracking-widest group-hover/radio:text-rose-600 transition">DÉGRADÉE (BAD)</span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="mb-8">
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Appréciation du Biologiste (Publique) <span class="text-slate-400 font-normal text-xs ml-1">Sera imprimée sur le certificat final.</span></label>
-                                <textarea name="comment" rows="4" class="block w-full border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:ring-indigo-500 rounded-xl shadow-sm transition resize-none">{{ optional($sample->result)->comment }}</textarea>
+                            <div class="space-y-4">
+                                <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Observations Expert (Publiques)</label>
+                                <textarea name="comment" rows="5" class="block w-full border-0 bg-slate-50 focus:ring-4 focus:ring-indigo-500/10 rounded-[2rem] text-sm font-medium p-8 shadow-inner" placeholder="Analyse certifiée conforme aux protocoles BioScan AI...">{{ optional($sample->result)->comment }}</textarea>
                             </div>
 
-                            <div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 bg-slate-50 -mx-8 -mb-8 p-8 rounded-b-3xl">
-                                <span class="text-xs text-slate-400 max-w-xs leading-relaxed">L'enregistrement de cette analyse bloquera sa modification par d'autres utilisateurs et l'enverra au client.</span>
-                                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-indigo-600/30 flex items-center transition transform hover:-translate-y-0.5">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Valider Officiellement
+                            <div class="flex items-center justify-between pt-10 border-t border-slate-50">
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest max-w-xs">
+                                    En validant, vous générez un certificat <br/>numérique opposable et infalsifiable.
+                                </p>
+                                <button type="submit" class="bg-indigo-600 hover:bg-slate-900 text-white font-black text-[10px] uppercase tracking-[0.2em] px-12 py-6 rounded-2xl shadow-2xl shadow-indigo-600/30 transform hover:-translate-y-1 transition active:scale-95">
+                                    Signer l'Analyse
                                 </button>
                             </div>
                         </form>

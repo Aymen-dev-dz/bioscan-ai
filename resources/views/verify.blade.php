@@ -37,102 +37,134 @@
             }
         </style>
     </head>
-    <body class="font-inter antialiased hero-bg min-h-screen flex items-center justify-center p-6">
-        <div class="max-w-lg w-full">
+    <body class="font-inter antialiased hero-bg min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+        <!-- Background DNA Decoration -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+            <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-bio-500 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-lg w-full relative z-10">
             <!-- Header Logo -->
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-4">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl shadow-indigo-500/20 transform -rotate-6">
+                        <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                     </div>
                 </div>
-                <h1 class="mt-4 font-outfit font-black text-2xl text-white">BioScan <span class="text-bio-400">AI</span></h1>
-                <div class="mt-1 inline-block px-3 py-1 bg-bio-500/20 rounded-full">
-                    <p class="text-bio-400 text-[10px] uppercase tracking-[0.2em] font-bold">Vérification Certifiée</p>
-                </div>
+                <h1 class="mt-6 font-outfit font-black text-3xl text-white uppercase italic tracking-tighter italic">BioScan <span class="text-indigo-400">Validator</span></h1>
+                <p class="text-[10px] font-black text-white/40 uppercase tracking-[0.3em] mt-2">Authentification Moléculaire Certifiée</p>
             </div>
 
             <!-- Content Card -->
-            <div class="glass rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+            <div class="glass rounded-[3rem] p-10 shadow-2xl relative overflow-hidden group">
+                <!-- Glitch Effect Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50"></div>
+                
                 <!-- Status Badge -->
-                <div class="flex justify-between items-start mb-10">
+                <div class="flex justify-between items-start mb-12">
                     <div>
-                        <p class="text-white/40 text-xs font-bold uppercase tracking-wider mb-1">ID Échantillon</p>
-                        <h2 class="text-white font-outfit font-bold text-2xl">#{{ $sample->id }}</h2>
+                        <p class="text-white/30 text-[9px] font-black uppercase tracking-[0.2em] mb-2">ID_SPECIMEN</p>
+                        <h2 class="text-white font-outfit font-black text-3xl tracking-tight">#{{ $sample->id }}</h2>
                     </div>
                     @php
                         $statusColors = [
                             'Pending' => 'bg-amber-500/20 text-amber-400 border-amber-500/30',
                             'Received' => 'bg-blue-500/20 text-blue-400 border-blue-500/30',
                             'Processing' => 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-                            'Completed' => 'bg-bio-500/20 text-bio-400 border-bio-500/30',
+                            'Completed' => 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
                         ];
                         $statusLabel = [
-                            'Pending' => 'En attente',
-                            'Received' => 'Reçu',
-                            'Processing' => 'Analyse en cours',
-                            'Completed' => 'Terminé',
+                            'Pending' => 'EN ATTENTE',
+                            'Received' => 'RÉCEPTIONNÉ',
+                            'Processing' => 'SÉQUENÇAGE',
+                            'Completed' => 'CERTIFIÉ',
                         ];
                     @endphp
-                    <div class="px-4 py-1.5 rounded-xl border {{ $statusColors[$sample->status] ?? 'bg-white/10 text-white border-white/20' }} text-xs font-black uppercase tracking-widest">
+                    <div class="px-5 py-2 rounded-xl border {{ $statusColors[$sample->status] ?? 'bg-white/10 text-white border-white/20' }} text-[10px] font-black uppercase tracking-[0.2em]">
                         {{ $statusLabel[$sample->status] ?? $sample->status }}
                     </div>
                 </div>
 
                 <!-- Info Grid -->
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                    <div class="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                        <p class="text-[10px] text-white/40 font-bold uppercase tracking-widest mb-1">Espèce</p>
-                        <p class="text-white font-bold">{{ $sample->species->name }}</p>
+                <div class="grid grid-cols-2 gap-6 mb-12">
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-3xl group-hover:bg-white/10 transition duration-500">
+                        <p class="text-[8px] text-white/30 font-black uppercase tracking-[0.2em] mb-2">TAXONOMIE</p>
+                        <p class="text-white font-black text-sm uppercase tracking-tight italic">{{ $sample->species->name }}</p>
                     </div>
-                    <div class="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                        <p class="text-[10px] text-white/40 font-bold uppercase tracking-widest mb-1">Propriétaire</p>
-                        <p class="text-white font-bold">{{ $sample->user->name }}</p>
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-3xl group-hover:bg-white/10 transition duration-500">
+                        <p class="text-[8px] text-white/30 font-black uppercase tracking-[0.2em] mb-2">ORIGINE</p>
+                        <p class="text-white font-black text-sm uppercase tracking-tight italic">{{ explode(' ', $sample->user->name)[0] }}</p>
                     </div>
-                    <div class="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                        <p class="text-[10px] text-white/40 font-bold uppercase tracking-widest mb-1">Type</p>
-                        <p class="text-white font-bold capitalize">{{ $sample->sample_type == 'feather' ? 'Plume' : 'Sang' }}</p>
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-3xl group-hover:bg-white/10 transition duration-500">
+                        <p class="text-[8px] text-white/30 font-black uppercase tracking-[0.2em] mb-2">BIOMARQUEUR</p>
+                        <p class="text-white font-black text-sm uppercase tracking-tight italic capitalize">{{ $sample->sample_type }}</p>
                     </div>
-                    <div class="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                        <p class="text-[10px] text-white/40 font-bold uppercase tracking-widest mb-1">Enregistré le</p>
-                        <p class="text-white font-bold">{{ $sample->created_at->format('d/m/Y') }}</p>
+                    <div class="bg-white/5 border border-white/5 p-5 rounded-3xl group-hover:bg-white/10 transition duration-500">
+                        <p class="text-[8px] text-white/30 font-black uppercase tracking-[0.2em] mb-2">DATATION</p>
+                        <p class="text-white font-black text-sm uppercase tracking-tight italic">{{ $sample->created_at->format('d M, Y') }}</p>
                     </div>
                 </div>
 
                 <!-- Result Area -->
-                <div class="pt-8 border-t border-white/10">
+                <div class="pt-10 border-t border-white/10">
                     @if($sample->status === 'Completed' && $sample->result)
-                        <div class="text-center py-4 bg-white/5 rounded-3xl border border-white/10">
-                            <p class="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">Résultat de l'Analyse</p>
-                            @if($sample->result->sex_result == 'Male')
-                                <div class="inline-flex w-20 h-20 bg-blue-500 rounded-full items-center justify-center text-white text-3xl shadow-lg shadow-blue-500/20 mb-3">♂</div>
-                                <h3 class="text-blue-400 font-outfit font-black text-3xl tracking-widest">MÂLE</h3>
-                            @elseif($sample->result->sex_result == 'Female')
-                                <div class="inline-flex w-20 h-20 bg-pink-500 rounded-full items-center justify-center text-white text-3xl shadow-lg shadow-pink-500/20 mb-3">♀</div>
-                                <h3 class="text-pink-400 font-outfit font-black text-3xl tracking-widest">FEMELLE</h3>
-                            @else
-                                <div class="inline-flex w-20 h-20 bg-slate-500 rounded-full items-center justify-center text-white text-3xl mb-3">?</div>
-                                <h3 class="text-slate-400 font-outfit font-black text-3xl tracking-widest">INCONNU</h3>
-                            @endif
-                            <div class="mt-4 text-bio-400 text-sm font-bold">Confiance de l'IA : {{ $sample->result->confidence_score }}%</div>
+                        <div class="text-center py-10 bg-indigo-500/5 rounded-[2.5rem] border border-indigo-500/20 relative overflow-hidden group/result">
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent"></div>
+                            <p class="text-white/40 text-[9px] font-black uppercase tracking-[0.3em] mb-8 relative z-10">DIAGNOSTIC TERMINAL</p>
+                            
+                            <div class="relative z-10 mb-8">
+                                @if($sample->result->sex_result == 'Male')
+                                    <div class="inline-flex w-24 h-24 bg-indigo-600 rounded-full items-center justify-center text-white text-5xl shadow-[0_0_50px_rgba(79,70,229,0.4)] font-black">♂</div>
+                                    <h3 class="mt-6 text-white font-outfit font-black text-5xl tracking-tighter uppercase italic italic">H_MASCULIN</h3>
+                                @elseif($sample->result->sex_result == 'Female')
+                                    <div class="inline-flex w-24 h-24 bg-pink-500 rounded-full items-center justify-center text-white text-5xl shadow-[0_0_50px_rgba(236,72,153,0.4)] font-black">♀</div>
+                                    <h3 class="mt-6 text-white font-outfit font-black text-5xl tracking-tighter uppercase italic italic">H_FÉMININ</h3>
+                                @else
+                                    <div class="inline-flex w-24 h-24 bg-slate-700 rounded-full items-center justify-center text-white text-5xl font-black">?</div>
+                                    <h3 class="mt-6 text-slate-400 font-outfit font-black text-4xl tracking-tighter uppercase italic italic">INC_NULL</h3>
+                                @endif
+                            </div>
+
+                            <div class="relative z-10 grid grid-cols-2 gap-4 px-10">
+                                <div class="text-center">
+                                    <span class="block text-[8px] font-black text-white/30 uppercase tracking-[0.2em] mb-1">INDICE_F</span>
+                                    <span class="text-emerald-400 font-black text-lg">{{ $sample->result->confidence_score }}%</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-[8px] font-black text-white/30 uppercase tracking-[0.2em] mb-1">PROTO_X</span>
+                                    <span class="text-indigo-400 font-black text-lg uppercase tracking-tighter">CERTIFIED</span>
+                                </div>
+                            </div>
                         </div>
                     @else
-                        <div class="text-center py-10 opacity-60">
-                            <div class="w-12 h-12 border-2 border-white/20 border-t-bio-400 rounded-full animate-spin mx-auto mb-4"></div>
-                            <p class="text-white text-sm font-medium italic">Analyse en cours dans nos laboratoires...</p>
+                        <div class="text-center py-16">
+                            <div class="relative w-20 h-20 mx-auto mb-8">
+                                <div class="absolute inset-0 border-4 border-white/5 rounded-full"></div>
+                                <div class="absolute inset-0 border-4 border-indigo-500 rounded-full border-t-transparent animate-spin"></div>
+                                <svg class="absolute inset-0 m-auto h-8 w-8 text-indigo-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-black text-white font-outfit uppercase italic tracking-tight italic">Compute Sequence...</h4>
+                            <p class="mt-3 text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">Extraction ADN en cours</p>
                         </div>
                     @endif
                 </div>
                 
                 <!-- Security Note -->
-                <div class="mt-10 flex items-center justify-center gap-2 text-[10px] text-white/30 uppercase tracking-widest font-bold">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    Certifié par BioScan AI Molecular Systems
+                <div class="mt-12 flex items-center justify-center gap-3 text-[9px] text-white/20 uppercase tracking-[0.2em] font-black">
+                    <div class="w-2 h-px bg-white/20"></div>
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-3 h-3 text-indigo-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Official Validation Node
+                    </span>
+                    <div class="w-2 h-px bg-white/20"></div>
                 </div>
             </div>
 
-            <p class="text-center mt-10 text-white/30 text-[10px] uppercase tracking-widest">
-                Scannez pour valider l'authenticité
+            <p class="text-center mt-12 text-white/20 text-[9px] font-black uppercase tracking-[0.4em]">
+                BIOSCAN AI • SECURITY LAYER
             </p>
         </div>
     </body>
