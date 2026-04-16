@@ -168,8 +168,8 @@
                         <p class="text-xs text-slate-500 mb-6 px-4">Imprimez ce QR code et scotchez-le sur le sachet zip contenant le prélèvement.</p>
                         
                         <div class="border-2 border-dashed border-slate-200 p-4 inline-block mb-6 rounded-2xl bg-white shadow-sm transition hover:border-indigo-300">
-                            <!-- External QR generator -->
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data={{ $sample->qr_code }}" alt="QR Code" class="mx-auto block rounded" />
+                            <!-- External QR generator with verification URL -->
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data={{ route('verify.qr', $sample->qr_code) }}" alt="QR Code" class="mx-auto block rounded" />
                             <div class="mt-4 bg-slate-100 py-1.5 px-3 rounded-lg text-xs font-mono font-bold text-slate-600 tracking-widest">{{ substr($sample->qr_code, 0, 8) }}</div>
                         </div>
 

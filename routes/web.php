@@ -11,6 +11,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/verify/{qr_code}', [DashboardController::class, 'verifyQr'])->name('verify.qr');
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
