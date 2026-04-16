@@ -14,5 +14,5 @@ services:
         value: stderr
       - key: DB_CONNECTION
         value: sqlite
-      - key: DB_DATABASE
-        value: database/database.sqlite
+      - key: DB_FOREIGN_KEYS
+        value: "true"

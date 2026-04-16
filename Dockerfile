@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
+    libsqlite3-dev \
     zip \
     unzip \
     git \
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 # Configurer PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql
+    && docker-php-ext-install gd pdo pdo_mysql pdo_sqlite
 
 # Activer le mod_rewrite d'Apache pour Laravel
 RUN a2enmod rewrite
@@ -41,4 +42,4 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 EXPOSE 80
-CMD php artisan storage:link && php artisan migrate --force && php artisan db:seed --force && apache2-foreground
+CMD rm -rf public/storage && php artisan storage:link && php artisan migrate --force && php artisan db:seed --force && apache2-foreground
