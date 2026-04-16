@@ -62,9 +62,31 @@
             -webkit-text-fill-color: transparent;
         }
         .section-divider {
-            background: linear-gradient(90deg, transparent, #4ade80, transparent);
+            background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
             height: 1px;
             width: 100%;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+        }
+        .btn-premium {
+            background: linear-gradient(135deg, #26a069 0%, #10432f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .btn-premium:hover::after {
+            left: 100%;
         }
         
         .navbar-scrolled {
@@ -169,15 +191,14 @@
                         <div class="w-2 h-2 bg-bio-400 rounded-full animate-pulse"></div>
                         Laboratoire Certifié ISO — Précision 99.9%
                     </div>
-                    <h1 class="font-outfit font-black text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.05] mb-6">
-                        Sexage Moléculaire
-                        <br>
-                        <span class="gradient-text">ADN des Oiseaux</span>
+                    <h1 class="font-outfit font-black text-5xl lg:text-7xl xl:text-8xl text-white leading-[0.95] mb-8 tracking-tighter italic">
+                        SEXAGE <br>
+                        <span class="gradient-text">MOLÉCULAIRE</span>
                     </h1>
-                    <p class="text-white/60 text-lg leading-relaxed mb-10 max-w-xl">
-                        La technique la plus fiable pour déterminer le sexe des espèces monomorphes. 
-                        Analyse PCR complète accompagnée d'une intelligence artificielle pour l'électrophorèse. 
-                        <strong class="text-white/90">Rapport certifié en 24-72h.</strong>
+                    <p class="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl font-medium">
+                        La sentinelle génétique de votre élevage. Détermination du sexe <span class="text-bio-400 font-bold">Infaillible</span> pour espèces monomorphes via technologie <span class="underline decoration-bio-500/50 underline-offset-4">Gold Standard PCR</span>. 
+                        <br><br>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-lg text-sm italic">Rapport ultra-haute fidélité en 24-72h.</span>
                     </p>
                     <div class="flex flex-wrap gap-4 mb-12">
                         <a href="{{ route('register') }}" class="inline-flex items-center gap-2 bg-bio-500 hover:bg-bio-400 text-white font-bold py-4 px-8 rounded-2xl transition shadow-xl shadow-bio-500/30 hover:shadow-bio-500/50 hover:-translate-y-0.5 transform">
@@ -270,10 +291,10 @@
     <!-- SERVICES SECTION -->
     <section id="services" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-bio-600 font-bold text-xs uppercase tracking-widest mb-3 block">Nos Analyses</span>
-                <h2 class="font-outfit font-black text-4xl text-slate-900">Un Écosystème Complet d'Analyses</h2>
-                <p class="text-slate-500 text-lg mt-4 max-w-2xl mx-auto">De la détermination du sexe à la détection de pathogènes, BioScan couvre l'intégralité des besoins génétiques aviaires.</p>
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2 bg-bio-100 text-bio-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4 border border-bio-200">NOS ANALYSES</div>
+                <h2 class="font-outfit font-black text-4xl lg:text-5xl text-slate-900 tracking-tight italic">Un Écosystème <span class="text-bio-600">BioTech</span> Complet</h2>
+                <p class="text-slate-500 text-lg mt-6 max-w-2xl mx-auto font-medium leading-relaxed">De la détermination du sexe à la détection de pathogènes, BioScan couvre l'intégralité des besoins génétiques aviaires avec des standards ISO.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -394,29 +415,33 @@
     <!-- SPECIES GALLERY SECTION -->
     <section id="species" class="py-24 bg-slate-900">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-bio-400 font-bold text-xs uppercase tracking-widest mb-3 block">Base de Données</span>
-                <h2 class="font-outfit font-black text-4xl text-white">Toutes vos Espèces Couvertes</h2>
-                <p class="text-slate-400 text-lg mt-4 max-w-2xl mx-auto">+1200 espèces de Néoaves, Ansériformes et Galliformes. Analyses sur plumes, sang et coquilles d'œufs.</p>
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2 bg-indigo-500/10 text-bio-400 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4 border border-bio-500/20">BIO-DATA LAB</div>
+                <h2 class="font-outfit font-black text-4xl lg:text-5xl text-white tracking-tight italic">Espèces <span class="text-bio-400 underline decoration-bio-400/30 underline-offset-8">Supportées</span></h2>
+                <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto font-medium">Validation génétique sur +1200 espèces de Néoaves, Ansériformes et Galliformes. Prélèvement possible sur plumes, sang et coquilles.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 @php
                     $birds = [
-                        ['img' => 'https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=400&auto=format&fit=crop', 'name' => 'Ara ararauna'],
-                        ['img' => 'https://images.unsplash.com/photo-1520108110173-08240f7ee817?q=80&w=400&auto=format&fit=crop', 'name' => 'Agapornis sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=400&auto=format&fit=crop', 'name' => 'Nymphicus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1544991583-1678da47fddd?q=80&w=400&auto=format&fit=crop', 'name' => 'Psittacus sp.'],
-                        ['img' => 'https://images.unsplash.com/photo-1522204523234-87cf9be723d3?q=80&w=400&auto=format&fit=crop', 'name' => 'Colombes'],
-                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b867ad?q=80&w=400&auto=format&fit=crop', 'name' => '+1200 Espèces'],
+                        ['img' => 'https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=400&auto=format&fit=crop', 'name' => 'Ara ararauna', 'cat' => 'PSITTACIDÉS'],
+                        ['img' => 'https://images.unsplash.com/photo-1520108110173-08240f7ee817?q=80&w=400&auto=format&fit=crop', 'name' => 'Agapornis sp.', 'cat' => 'LOVEBIRDS'],
+                        ['img' => 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=400&auto=format&fit=crop', 'name' => 'Nymphicus sp.', 'cat' => 'CACATOÈS'],
+                        ['img' => 'https://images.unsplash.com/photo-1544991583-1678da47fddd?q=80&w=400&auto=format&fit=crop', 'name' => 'Psittacus sp.', 'cat' => 'GRIS DU GABON'],
+                        ['img' => 'https://images.unsplash.com/photo-1522204523234-87cf9be723d3?q=80&w=400&auto=format&fit=crop', 'name' => 'Colombes', 'cat' => 'COLUMBIDÉS'],
+                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b867ad?q=80&w=400&auto=format&fit=crop', 'name' => '+1200 Espèces', 'cat' => 'FULL ECOSYSTEM'],
                     ];
                 @endphp
 
                 @foreach($birds as $bird)
-                <div class="relative rounded-2xl overflow-hidden group cursor-pointer">
-                    <img src="{{ $bird['img'] }}" alt="{{ $bird['name'] }}" class="w-full h-32 object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3">
-                        <span class="text-white font-bold text-xs">{{ $bird['name'] }}</span>
+                <div class="relative rounded-3xl overflow-hidden group cursor-pointer border border-white/5 shadow-2xl h-44">
+                    <img src="{{ $bird['img'] }}" alt="{{ $bird['name'] }}" class="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition duration-700 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-4">
+                        <div class="text-[8px] font-black text-bio-400 uppercase tracking-[0.2em] mb-1 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">{{ $bird['cat'] }}</div>
+                        <span class="text-white font-black font-outfit text-sm tracking-tight uppercase group-hover:text-bio-300 transition-colors">{{ $bird['name'] }}</span>
+                    </div>
+                    <div class="absolute top-3 right-3 w-6 h-6 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition">
+                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
                     </div>
                 </div>
                 @endforeach
