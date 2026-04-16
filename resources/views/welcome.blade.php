@@ -421,30 +421,43 @@
                 <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto font-medium">Validation génétique sur +1200 espèces de Néoaves, Ansériformes et Galliformes. Prélèvement possible sur plumes, sang et coquilles.</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @php
-                    $birds = [
-                        ['img' => 'https://images.unsplash.com/photo-1552728089-57bdde30eba3?q=80&w=400&auto=format&fit=crop', 'name' => 'Ara ararauna', 'cat' => 'PSITTACIDÉS'],
-                        ['img' => 'https://images.unsplash.com/photo-1520108110173-08240f7ee817?q=80&w=400&auto=format&fit=crop', 'name' => 'Agapornis sp.', 'cat' => 'LOVEBIRDS'],
-                        ['img' => 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=400&auto=format&fit=crop', 'name' => 'Nymphicus sp.', 'cat' => 'CACATOÈS'],
-                        ['img' => 'https://images.unsplash.com/photo-1544991583-1678da47fddd?q=80&w=400&auto=format&fit=crop', 'name' => 'Psittacus sp.', 'cat' => 'GRIS DU GABON'],
-                        ['img' => 'https://images.unsplash.com/photo-1522204523234-87cf9be723d3?q=80&w=400&auto=format&fit=crop', 'name' => 'Colombes', 'cat' => 'COLUMBIDÉS'],
-                        ['img' => 'https://images.unsplash.com/photo-1444464666168-49d633b867ad?q=80&w=400&auto=format&fit=crop', 'name' => '+1200 Espèces', 'cat' => 'FULL ECOSYSTEM'],
+                    $families = [
+                        ['name' => 'Psittacidés', 'desc' => 'Aras, Gris du Gabon, Cacatoès, Amazones', 'count' => '350+ Espèces', 'icon' => 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3'],
+                        ['name' => 'Agapornidés', 'desc' => 'Inséparables (Roseicollis, Personatus, Fischeri)', 'count' => '9 Espèces & Hybrides', 'icon' => 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'],
+                        ['name' => 'Columbidés', 'desc' => 'Pigeons, Tourterelles, Colombes diamant', 'count' => '310+ Espèces', 'icon' => 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064'],
+                        ['name' => 'Estrildidés', 'desc' => 'Diamants de Gould, Mandarins, Moineaux du Japon', 'count' => '140+ Espèces', 'icon' => 'M11 4a2 2 0 114 0v1a2 2 0 11-4 0V4zM18 14a2 2 0 114 0v1a2 2 0 11-4 0v-1zM4 14a2 2 0 114 0v1a2 2 0 11-4 0v-1z'],
+                        ['name' => 'Falconidés', 'desc' => 'Faucons, Crécerelles, Rapaces de fauconnerie', 'count' => '60+ Espèces', 'icon' => 'M13 10V3L4 14h7v7l9-11h-7z'],
+                        ['name' => 'Galliformes', 'desc' => 'Faisans, Paons, Perdrix, Cailles', 'count' => '290+ Espèces', 'icon' => 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'],
                     ];
                 @endphp
 
-                @foreach($birds as $bird)
-                <div class="relative rounded-3xl overflow-hidden group cursor-pointer border border-white/5 shadow-2xl h-44">
-                    <img src="{{ $bird['img'] }}" alt="{{ $bird['name'] }}" class="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition duration-700 opacity-80 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-4">
-                        <div class="text-[8px] font-black text-bio-400 uppercase tracking-[0.2em] mb-1 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">{{ $bird['cat'] }}</div>
-                        <span class="text-white font-black font-outfit text-sm tracking-tight uppercase group-hover:text-bio-300 transition-colors">{{ $bird['name'] }}</span>
+                @foreach($families as $family)
+                <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all group flex flex-col justify-between h-full">
+                    <div>
+                        <div class="w-14 h-14 bg-bio-500/20 rounded-2xl flex items-center justify-center text-bio-400 mb-6 group-hover:scale-110 transition shrink-0 border border-bio-500/30">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $family['icon'] }}"></path></svg>
+                        </div>
+                        <h4 class="text-white font-black font-outfit text-2xl mb-2 tracking-tight uppercase italic">{{ $family['name'] }}</h4>
+                        <p class="text-slate-400 text-sm font-medium leading-relaxed mb-8">{{ $family['desc'] }}</p>
                     </div>
-                    <div class="absolute top-3 right-3 w-6 h-6 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition">
-                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                    
+                    <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
+                        <span class="text-bio-500 font-black text-[10px] tracking-widest uppercase">{{ $family['count'] }}</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/20 group-hover:text-bio-400 transition">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="{{ route('register') }}" class="inline-flex items-center gap-2 text-bio-400 hover:text-white transition font-black text-xs uppercase tracking-[0.3em]">
+                    Consulter la Nomenclature Complète
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
             </div>
         </div>
     </section>
