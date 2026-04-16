@@ -57,6 +57,11 @@ class ClientController extends Controller
         return back()->with('success', 'Payment successful. You can now view the full results.');
     }
 
+    public function instructionsPage()
+    {
+        return view('client.instructions');
+    }
+
     public function printReport($id)
     {
         $sample = Sample::where('user_id', Auth::id())->with(['species', 'result', 'user', 'result.biologist'])->findOrFail($id);

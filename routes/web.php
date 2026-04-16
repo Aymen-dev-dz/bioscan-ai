@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     // Client Routes
     Route::prefix('client')->name('client.')->group(function () {
+        Route::get('/instructions', [ClientController::class, 'instructionsPage'])->name('instructions');
         Route::get('/submit', [ClientController::class, 'submitForm'])->name('submit');
         Route::post('/submit', [ClientController::class, 'storeSample'])->name('store');
         Route::get('/sample/{id}', [ClientController::class, 'showSample'])->name('sample.show');
