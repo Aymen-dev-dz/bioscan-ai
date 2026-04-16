@@ -8,6 +8,8 @@ services:
         value: production
       - key: APP_DEBUG
         value: true # Activé temporairement pour voir l'erreur
+      - key: APP_KEY
+        value: base64:pwUdpUP9jxkOR0qMT4GeulW71vtBEUsUExEkMsAiEuE=
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION
