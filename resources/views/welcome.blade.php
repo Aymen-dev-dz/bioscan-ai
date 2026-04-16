@@ -66,6 +66,45 @@
             height: 1px;
             width: 100%;
         }
+        /* DNA Animation */
+        .dna-container {
+            position: absolute;
+            width: 100px;
+            height: 500px;
+            opacity: 0.1;
+            z-index: 0;
+            right: 15%;
+            top: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            pointer-events: none;
+        }
+        .dna-step {
+            width: 60px;
+            height: 4px;
+            background: #4ade80;
+            border-radius: 4px;
+            position: relative;
+            animation: dna-rotate 4s infinite linear;
+        }
+        .dna-step::before, .dna-step::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22d3ee;
+            top: -3px;
+        }
+        .dna-step::before { left: -5px; }
+        .dna-step::after { right: -5px; background: #818cf8; }
+
+        @keyframes dna-rotate {
+            0% { transform: scaleX(1) rotate(0deg); opacity: 1; }
+            50% { transform: scaleX(-1) rotate(180deg); opacity: 0.3; }
+            100% { transform: scaleX(1) rotate(360deg); opacity: 1; }
+        }
     </style>
 </head>
 <body class="font-inter bg-white antialiased">
@@ -98,6 +137,13 @@
 
     <!-- HERO SECTION -->
     <section class="hero-bg min-h-screen flex items-center relative overflow-hidden pt-20">
+        <!-- DNA Animation -->
+        <div class="dna-container hidden lg:flex">
+            @for($i = 0; $i < 20; $i++)
+                <div class="dna-step" style="animation-delay: {{ $i * 0.2 }}s"></div>
+            @endfor
+        </div>
+
         <!-- BG Decorative Blobs -->
         <div class="absolute top-20 right-20 w-96 h-96 bg-bio-500/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-20 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>

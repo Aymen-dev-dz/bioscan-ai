@@ -16,19 +16,65 @@
                 </div>
             @endif
 
-            <div class="flex justify-between items-end mb-8">
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800 font-outfit">Suivi des Analyses</h3>
-                    <p class="text-sm text-slate-500">Aperçu en temps réel de tous vos prélèvements envoyés au labo.</p>
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
+                <div class="w-full md:w-auto">
+                    <h3 class="text-xl font-outfit font-black text-slate-900">Analyses en cours</h3>
+                    <p class="text-sm text-slate-500">Suivi temps réel de vos prélèvements génétiques.</p>
                 </div>
-                <a href="{{ route('client.submit') }}" class="group relative inline-flex items-center justify-center px-6 py-2.5 font-bold text-white transition-all duration-200 bg-indigo-600 font-pj rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 shadow-md hover:shadow-indigo-500/30">
-                    <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                    Nouveau Prélèvement
-                </a>
+                
+                <div class="flex items-center gap-4 w-full md:w-auto">
+                    <!-- Search Bar -->
+                    <div class="relative w-full md:w-64 group">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-slate-400 group-focus-within:text-indigo-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <input type="text" id="sampleSearch" placeholder="Rechercher #ID ou Espèce..." class="block w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition shadow-sm">
+                    </div>
+
+                    <a href="{{ route('client.submit') }}" class="whitespace-nowrap inline-flex items-center justify-center px-6 py-2.5 font-bold text-white transition-all duration-200 bg-indigo-600 rounded-xl hover:bg-indigo-500 focus:outline-none shadow-md hover:shadow-indigo-500/30">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        Nouveau
+                    </a>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-12">
-                <!-- Main Dashboard Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Profile Progress Card -->
+                <div class="lg:col-span-4 bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+                    <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition"></div>
+                    
+                    <div class="flex items-center gap-6 relative z-10 w-full md:w-auto">
+                        <div class="relative w-16 h-16 flex-shrink-0">
+                            <svg class="w-full h-full transform -rotate-90">
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-100" />
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="176" stroke-dashoffset="{{ 176 - (176 * $profile_progress / 100) }}" class="text-indigo-600 transition-all duration-1000 ease-out" />
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center text-xs font-black text-indigo-700 font-outfit">
+                                {{ $profile_progress }}%
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Complétion du Profil Éleveur</h4>
+                            <p class="text-xs text-slate-500">Ajoutez votre affixe et vos coordonnées pour des rapports certifiés complets.</p>
+                        </div>
+                    </div>
+
+                    @if($profile_progress < 100)
+                        <div class="relative z-10 w-full md:w-auto">
+                            <a href="{{ route('profile.edit') }}" class="inline-flex items-center px-6 py-2.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold rounded-xl text-sm transition transition-transform hover:-translate-y-0.5">
+                                Finaliser mon profil
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+                    @else
+                        <div class="relative z-10 flex items-center gap-2 text-emerald-600 bg-emerald-50 px-5 py-2.5 rounded-xl font-bold text-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Profil Vérifié & Complet
+                        </div>
+                    @endif
+                </div>
+
+                <div class="lg:col-span-3">
                 <div class="lg:col-span-3">
                     <!-- Desktop Table -->
                     <div class="hidden md:block bg-white overflow-hidden shadow-xl shadow-slate-200/50 sm:rounded-3xl border border-slate-100">
@@ -203,15 +249,25 @@
         <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
     </a>
 
-    <style>
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(-10%); }
-            50% { transform: translateY(0); }
-        }
-        .animate-bounce-slow {
-            animation: bounce-slow 4s infinite ease-in-out;
-        }
-    </style>
+    <script>
+        document.getElementById('sampleSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // Filter Desktop Table
+            const desktopRows = document.querySelectorAll('tbody tr');
+            desktopRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+
+            // Filter Mobile Cards
+            const mobileCards = document.querySelectorAll('.md\\:hidden > div');
+            mobileCards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
 </x-app-layout>
             
         </div>

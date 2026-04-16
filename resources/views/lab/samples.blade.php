@@ -8,11 +8,44 @@
     <div class="py-12 bg-gray-50 min-h-screen">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
-            <div class="mb-6 flex space-x-4">
-                <a href="{{ route('lab.samples') }}" class="px-4 py-2 bg-white border rounded-lg shadow-sm font-semibold {{ !request('status') ? 'bg-blue-50 text-blue-700 border-blue-200' : 'text-gray-600' }}">Tous</a>
-                <a href="{{ route('lab.samples', ['status' => 'Pending']) }}" class="px-4 py-2 bg-white border rounded-lg shadow-sm font-semibold {{ request('status') == 'Pending' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'text-gray-600' }}">En Attente</a>
-                <a href="{{ route('lab.samples', ['status' => 'Received']) }}" class="px-4 py-2 bg-white border rounded-lg shadow-sm font-semibold {{ request('status') == 'Received' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'text-gray-600' }}">Reçus</a>
-                <a href="{{ route('lab.samples', ['status' => 'Processing']) }}" class="px-4 py-2 bg-white border rounded-lg shadow-sm font-semibold {{ request('status') == 'Processing' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'text-gray-600' }}">En Traitement</a>
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Total</div>
+                    <div class="text-2xl font-black text-slate-900">{{ $stats['total'] }}</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-slate-400">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">En Attente</div>
+                    <div class="text-2xl font-black text-slate-900">{{ $stats['pending'] }}</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-blue-400">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Reçus</div>
+                    <div class="text-2xl font-black text-slate-900">{{ $stats['received'] }}</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-amber-400">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Traitement</div>
+                    <div class="text-2xl font-black text-slate-900">{{ $stats['processing'] }}</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-emerald-400">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Validés</div>
+                    <div class="text-2xl font-black text-slate-900">{{ $stats['completed'] }}</div>
+                </div>
+            </div>
+
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex space-x-2 overflow-x-auto pb-2 w-full md:w-auto">
+                    <a href="{{ route('lab.samples') }}" class="px-4 py-2 bg-white border rounded-xl shadow-sm text-sm font-bold {{ !request('status') ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'text-slate-600 border-slate-100' }}">Tous</a>
+                    <a href="{{ route('lab.samples', ['status' => 'Pending']) }}" class="px-4 py-2 bg-white border rounded-xl shadow-sm text-sm font-bold {{ request('status') == 'Pending' ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'text-slate-600 border-slate-100' }}">En Attente</a>
+                    <a href="{{ route('lab.samples', ['status' => 'Received']) }}" class="px-4 py-2 bg-white border rounded-xl shadow-sm text-sm font-bold {{ request('status') == 'Received' ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'text-slate-600 border-slate-100' }}">Reçus</a>
+                    <a href="{{ route('lab.samples', ['status' => 'Processing']) }}" class="px-4 py-2 bg-white border rounded-xl shadow-sm text-sm font-bold {{ request('status') == 'Processing' ? 'bg-indigo-50 text-indigo-700 border-indigo-200' : 'text-slate-600 border-slate-100' }}">En Traitement</a>
+                </div>
+
+                <div class="relative w-full md:w-80">
+                    <input type="text" id="labSearch" placeholder="Rechercher #QR, Espèce ou Client..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 shadow-sm transition">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                </div>
             </div>
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100">
@@ -67,4 +100,16 @@
             
         </div>
     </div>
+
+    <script>
+        document.getElementById('labSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
 </x-app-layout>

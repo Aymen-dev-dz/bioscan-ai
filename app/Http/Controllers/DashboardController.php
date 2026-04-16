@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Sample;
+use App\Models\Species;
 
 class DashboardController extends Controller
 {
@@ -19,9 +20,20 @@ class DashboardController extends Controller
             return redirect()->route('lab.samples');
         }
 
-        // Default: Client dashboard
-        $samples = Sample::where('user_id', $user->id)->with(['species', 'result'])->orderBy('created_at', 'desc')->get();
-        return view('dashboard', compact('samples'));
+        $samples = Sample::where('user_id', $user->id)
+            ->with(['species', 'result'])
+            ->latest()
+            ->get();
+        
+        $species = Species::all();
+        
+        // Calculate profile completeness
+        $profile_progress = 0;
+        if($user->phone) $profile_progress += 33;
+        if($user->address) $profile_progress += 33;
+        if($user->breeder_id) $profile_progress += 34;
+
+        return view('dashboard', compact('samples', 'species', 'profile_progress'));
     }
 
     public function verifyQr($qr_code)

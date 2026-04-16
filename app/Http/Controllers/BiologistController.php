@@ -13,14 +13,24 @@ class BiologistController extends Controller
     public function index(Request $request)
     {
         $status = $request->query('status');
-        $query = Sample::with('species');
+        $query = Sample::with(['species', 'user']);
         
         if ($status) {
             $query->where('status', $status);
         }
         
         $samples = $query->orderBy('created_at', 'desc')->get();
-        return view('lab.samples', compact('samples'));
+        
+        $all_samples = Sample::all();
+        $stats = [
+            'total' => $all_samples->count(),
+            'pending' => $all_samples->where('status', 'Pending')->count(),
+            'received' => $all_samples->where('status', 'Received')->count(),
+            'processing' => $all_samples->where('status', 'Processing')->count(),
+            'completed' => $all_samples->where('status', 'Completed')->count(),
+        ];
+
+        return view('lab.samples', compact('samples', 'stats'));
     }
 
     public function scanQr(Request $request)
