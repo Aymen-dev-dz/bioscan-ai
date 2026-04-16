@@ -66,6 +66,19 @@
             height: 1px;
             width: 100%;
         }
+        
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.9) !important;
+            backdrop-filter: blur(8px) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .navbar-scrolled span, .navbar-scrolled a:not(.bg-bio-500) {
+            color: #1e293b !important;
+        }
+        .navbar-scrolled .text-white\/50 { color: #64748b !important; }
+        .navbar-scrolled .logo-container { background: #1e293b !important; }
+
         /* DNA Animation */
         .dna-container {
             position: absolute;
@@ -110,15 +123,15 @@
 <body class="font-inter bg-white antialiased">
 
     <!-- NAV -->
-    <nav class="fixed top-0 w-full z-50 glass">
+    <nav id="navbar" class="fixed top-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
             <a href="/" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+                <div class="logo-container w-10 h-10 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg transition-colors">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                 </div>
                 <div>
-                    <span class="font-outfit font-black text-xl text-white">BioScan<span class="text-bio-400"> AI</span></span>
-                    <div class="text-[10px] text-white/50 leading-none tracking-widest uppercase">Génétique Avancée</div>
+                    <span class="font-outfit font-black text-xl text-white transition-colors">BioScan<span class="text-bio-400"> AI</span></span>
+                    <div class="text-[10px] text-white/50 leading-none tracking-widest uppercase transition-colors">Génétique Avancée</div>
                 </div>
             </a>
             <div class="hidden md:flex items-center gap-8">
@@ -129,7 +142,7 @@
             <div class="flex items-center gap-3">
                 <a href="{{ route('login') }}" class="text-white/80 hover:text-white font-semibold text-sm transition px-4 py-2 rounded-lg hover:bg-white/10">Connexion</a>
                 <a href="{{ route('register') }}" class="bg-bio-500 hover:bg-bio-400 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-lg shadow-bio-500/30">
-                    Sign Up
+                    S'inscrire
                 </a>
             </div>
         </div>
@@ -480,5 +493,17 @@
         </div>
     </footer>
 
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('navbar-scrolled');
+                nav.classList.remove('glass');
+            } else {
+                nav.classList.remove('navbar-scrolled');
+                nav.classList.add('glass');
+            }
+        });
+    </script>
 </body>
 </html>
