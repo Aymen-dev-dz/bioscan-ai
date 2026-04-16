@@ -149,14 +149,14 @@
                 <!-- Hero Image Collage -->
                 <div class="relative float-animation">
                     <div class="relative">
-                        <!-- Main Bird Photo (Piroki) -->
+                        <!-- Main Bird Photo -->
                         <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-800">
-                            <img src="https://picsum.photos/id/237/800/600" 
-                                 alt="Gris du Gabon (Piroki) - sexage ADN" class="w-full h-80 object-cover">
+                            <img src="{{ asset('images/bird_hero.png') }}" 
+                                 alt="Gris du Gabon - BioScan AI" class="w-full h-80 object-cover">
                         </div>
                         <!-- Floating Lab Image -->
                         <div class="absolute -bottom-6 -left-6 w-48 h-36 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-slate-800">
-                            <img src="https://picsum.photos/id/192/400/300" 
+                            <img src="{{ asset('images/lab_detail.png') }}" 
                                  alt="Laboratoire PCR" class="w-full h-full object-cover">
                         </div>
                         <!-- Result Badge -->
