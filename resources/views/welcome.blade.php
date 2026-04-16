@@ -421,42 +421,57 @@
                 <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto font-medium">Validation génétique sur +1200 espèces de Néoaves, Ansériformes et Galliformes. Prélèvement possible sur plumes, sang et coquilles.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-16">
                 @php
                     $families = [
-                        ['name' => 'Psittacidés', 'desc' => 'Aras, Gris du Gabon, Cacatoès, Amazones', 'count' => '350+ Espèces', 'icon' => 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3'],
-                        ['name' => 'Agapornidés', 'desc' => 'Inséparables (Roseicollis, Personatus, Fischeri)', 'count' => '9 Espèces & Hybrides', 'icon' => 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'],
-                        ['name' => 'Columbidés', 'desc' => 'Pigeons, Tourterelles, Colombes diamant', 'count' => '310+ Espèces', 'icon' => 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064'],
-                        ['name' => 'Estrildidés', 'desc' => 'Diamants de Gould, Mandarins, Moineaux du Japon', 'count' => '140+ Espèces', 'icon' => 'M11 4a2 2 0 114 0v1a2 2 0 11-4 0V4zM18 14a2 2 0 114 0v1a2 2 0 11-4 0v-1zM4 14a2 2 0 114 0v1a2 2 0 11-4 0v-1z'],
-                        ['name' => 'Falconidés', 'desc' => 'Faucons, Crécerelles, Rapaces de fauconnerie', 'count' => '60+ Espèces', 'icon' => 'M13 10V3L4 14h7v7l9-11h-7z'],
-                        ['name' => 'Galliformes', 'desc' => 'Faisans, Paons, Perdrix, Cailles', 'count' => '290+ Espèces', 'icon' => 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'],
+                        ['code' => 'PS-01', 'name' => 'Psittacidés', 'desc' => 'Aras, Gris du Gabon, Cacatoès, Amazones', 'count' => '350+ ESPÈCES'],
+                        ['code' => 'AG-02', 'name' => 'Agapornidés', 'desc' => 'Roseicollis, Personatus, Fischeri, Lilianae', 'count' => '9 ESPÈCES'],
+                        ['code' => 'CL-03', 'name' => 'Columbidés', 'desc' => 'Pigeons, Tourterelles, Colombes diamant', 'count' => '310+ ESPÈCES'],
+                        ['code' => 'ES-04', 'name' => 'Estrildidés', 'desc' => 'Gould, Mandarins, Moineaux du Japon, Paddas', 'count' => '144+ ESPÈCES'],
+                        ['code' => 'FA-05', 'name' => 'Falconidés', 'desc' => 'Faucons, Crécerelles, Éperviers, Buses', 'count' => '62+ ESPÈCES'],
+                        ['code' => 'GL-06', 'name' => 'Galliformes', 'desc' => 'Faisans, Paons, Perdrix, Cailles, Tétras', 'count' => '295+ ESPÈCES'],
+                        ['code' => 'FR-07', 'name' => 'Fringillidés', 'desc' => 'Canaris, Chardonnerets, Bouvreuils, Linottes', 'count' => '220+ ESPÈCES'],
+                        ['code' => 'AC-08', 'name' => 'Accipitridés', 'desc' => 'Aigles, Autours, Milan, Busards', 'count' => '240+ ESPÈCES'],
+                        ['code' => 'RA-09', 'name' => 'Ratites', 'desc' => 'Autruches, Émeus, Nandous, Rheas', 'count' => '12+ ESPÈCES'],
                     ];
                 @endphp
 
                 @foreach($families as $family)
-                <div class="bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all group flex flex-col justify-between h-full">
-                    <div>
-                        <div class="w-14 h-14 bg-bio-500/20 rounded-2xl flex items-center justify-center text-bio-400 mb-6 group-hover:scale-110 transition shrink-0 border border-bio-500/30">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $family['icon'] }}"></path></svg>
-                        </div>
-                        <h4 class="text-white font-black font-outfit text-2xl mb-2 tracking-tight uppercase italic">{{ $family['name'] }}</h4>
-                        <p class="text-slate-400 text-sm font-medium leading-relaxed mb-8">{{ $family['desc'] }}</p>
+                <div class="group cursor-default relative">
+                    <!-- Technical Header -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="font-mono text-[10px] text-bio-400 font-black border border-bio-400/30 px-2 py-0.5 rounded tracking-tighter">
+                            {{ $family['code'] }}
+                        </span>
+                        <div class="h-[1px] flex-grow bg-white/5 group-hover:bg-bio-400/20 transition-all duration-500"></div>
+                        <span class="font-mono text-[9px] text-slate-500 font-bold tracking-widest">{{ $family['count'] }}</span>
                     </div>
-                    
-                    <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
-                        <span class="text-bio-500 font-black text-[10px] tracking-widest uppercase">{{ $family['count'] }}</span>
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/20 group-hover:text-bio-400 transition">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
+
+                    <!-- Family Name -->
+                    <h4 class="text-white font-black font-outfit text-3xl mb-3 tracking-tighter group-hover:text-bio-400 transition-colors uppercase italic italic italic">
+                        {{ $family['name'] }}
+                    </h4>
+
+                    <!-- Technical Decription -->
+                    <p class="text-slate-400 text-xs leading-relaxed font-medium tracking-wide border-l-2 border-white/5 pl-4 group-hover:border-bio-500/40 transition-all">
+                        {{ $family['desc'] }}
+                    </p>
+
+                    <!-- Interaction Reveal -->
+                    <div class="absolute -right-2 top-10 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
+                        <svg class="w-10 h-10 text-bio-400/10" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </div>
                 </div>
                 @endforeach
             </div>
 
-            <div class="mt-16 text-center">
-                <a href="{{ route('register') }}" class="inline-flex items-center gap-2 text-bio-400 hover:text-white transition font-black text-xs uppercase tracking-[0.3em]">
-                    Consulter la Nomenclature Complète
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <div class="mt-24 border-t border-white/5 pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div>
+                    <h5 class="text-white font-black font-outfit text-lg tracking-tight italic uppercase">Accès Nomenclature Complète</h5>
+                    <p class="text-slate-500 text-xs font-medium mt-1 uppercase tracking-widest italic">Base de données génétique actualisée quotidiennement</p>
+                </div>
+                <a href="{{ route('register') }}" class="px-10 py-5 bg-white text-slate-950 font-black text-[10px] uppercase tracking-[0.3em] rounded-2xl hover:bg-bio-400 transition transform hover:-translate-y-1 shadow-2xl">
+                    Soumettre une espèce non référencée
                 </a>
             </div>
         </div>
