@@ -8,8 +8,6 @@ services:
         value: production
       - key: APP_DEBUG
         value: true # Activé temporairement pour voir l'erreur
-      - key: APP_KEY
-        sync: false # Le champ sera demandé manuellement sur Render
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION
