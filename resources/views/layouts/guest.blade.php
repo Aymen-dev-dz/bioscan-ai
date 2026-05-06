@@ -50,7 +50,7 @@
         <div class="w-full sm:max-w-md">
             <div class="text-center mb-10">
                 <a href="/" class="inline-flex items-center gap-3">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-16 w-auto">
+                    <img src="{{ asset('images/logo.png') }}" alt="GenDer Lab Logo" class="h-16 w-auto">
                 </a>
                 <h1 class="mt-4 font-outfit font-black text-2xl text-white">GenDer Lab</h1>
                 <p class="text-white/40 text-sm mt-1 uppercase tracking-widest font-bold">Molecular Bird Sexing</p>

@@ -32,6 +32,7 @@
         <!-- Header -->
         <div class="flex justify-between items-start border-b-2 border-indigo-600 pb-6 mb-6">
             <div>
+                <img src="{{ public_path('images/logo.png') }}" alt="Logo" style="height: 50px; margin-bottom: 10px;">
                 <h1 class="text-3xl font-black text-indigo-800 tracking-tight">GenDer Lab</h1>
                 <p class="text-xs text-gray-500 uppercase font-bold tracking-widest mt-1">Laboratoire de Biotechnologie</p>
                 <p class="text-sm text-gray-500 mt-2">123 Avenue de la Science, Paris, 75000</p>

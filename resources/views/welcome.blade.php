@@ -148,7 +148,7 @@
     <nav id="navbar" class="fixed top-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
             <a href="/" class="flex items-center gap-3">
-                <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
+                <img src="{{ asset('images/logo.png') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-white/70 hover:text-white text-sm font-medium transition">Services</a>
@@ -497,7 +497,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
+                        <img src="{{ asset('images/logo.png') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
                         Plateforme de génétique moléculaire avancée pour le sexage et la détection de pathogènes aviaires. Précision 99.9%, rapports certifiés.
