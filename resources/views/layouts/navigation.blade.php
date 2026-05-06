@@ -6,10 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
-                        <div class="w-10 h-10 bg-gradient-to-br from-bio-400 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-bio-400/20">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <span class="font-outfit font-black text-xl text-slate-900 tracking-tight">BioScan <span class="text-bio-500">AI</span></span>
+                        <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-10 w-auto">
+                        <span class="font-outfit font-black text-xl text-slate-900 tracking-tight">GenDer Lab</span>
                     </a>
                 </div>
 

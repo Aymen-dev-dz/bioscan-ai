@@ -91,7 +91,7 @@
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-black font-outfit text-lg">Assistant BioScan AI</h3>
+                                    <h3 class="font-black font-outfit text-lg">Assistant GenDer Lab</h3>
                                     <p class="text-[10px] text-bio-400 font-bold uppercase tracking-widest">En ligne • IA Biologiste</p>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             <!-- Chat Messages (Simulated) -->
                             <div class="flex-1 overflow-y-auto space-y-4 mb-6 pr-2 custom-scrollbar">
                                 <div class="bg-white/10 p-4 rounded-2xl rounded-tl-none text-sm text-white/80 border border-white/5">
-                                    Bonjour ! Je suis l'IA de BioScan. Comment puis-je vous aider dans votre prélèvement aujourd'hui ?
+                                    Bonjour ! Je suis l'IA de GenDer Lab. Comment puis-je vous aider dans votre prélèvement aujourd'hui ?
                                 </div>
                                 <div class="bg-bio-500/20 p-4 rounded-2xl rounded-tr-none text-sm text-bio-100 border border-bio-500/20 self-end ml-8">
                                     Quelles plumes dois-je prendre pour un perroquet ?

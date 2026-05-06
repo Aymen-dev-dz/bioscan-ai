@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioScan AI — Sexage Moléculaire & Détection Pathogènes</title>
+    <title>GenDer Lab — Sexage Moléculaire & Détection Pathogènes</title>
     <meta name="description" content="Plateforme de sexage moléculaire ADN pour oiseaux et espèces monomorphes. Analyse PCR, IA électrophorèse, rapport certifié en 24-72h. Précision 99.9%.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,13 +148,7 @@
     <nav id="navbar" class="fixed top-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
             <a href="/" class="flex items-center gap-3">
-                <div class="logo-container w-10 h-10 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg transition-colors">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                </div>
-                <div>
-                    <span class="font-outfit font-black text-xl text-white transition-colors">BioScan<span class="text-bio-400"> AI</span></span>
-                    <div class="text-[10px] text-white/50 leading-none tracking-widest uppercase transition-colors">Génétique Avancée</div>
-                </div>
+                <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-white/70 hover:text-white text-sm font-medium transition">Services</a>
@@ -232,7 +226,7 @@
                         <!-- Main Bird Photo -->
                         <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-800">
                             <img src="{{ asset('images/bird_hero.png') }}" 
-                                 alt="Gris du Gabon - BioScan AI" class="w-full h-80 object-cover">
+                                 alt="Gris du Gabon - GenDer Lab" class="w-full h-80 object-cover">
                         </div>
                         <!-- Floating Lab Image -->
                         <div class="absolute -bottom-6 -left-6 w-48 h-36 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-slate-800">
@@ -294,7 +288,7 @@
             <div class="text-center mb-20">
                 <div class="inline-flex items-center gap-2 bg-bio-100 text-bio-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4 border border-bio-200">NOS ANALYSES</div>
                 <h2 class="font-outfit font-black text-4xl lg:text-5xl text-slate-900 tracking-tight italic">Un Écosystème <span class="text-bio-600">BioTech</span> Complet</h2>
-                <p class="text-slate-500 text-lg mt-6 max-w-2xl mx-auto font-medium leading-relaxed">De la détermination du sexe à la détection de pathogènes, BioScan couvre l'intégralité des besoins génétiques aviaires avec des standards ISO.</p>
+                <p class="text-slate-500 text-lg mt-6 max-w-2xl mx-auto font-medium leading-relaxed">De la détermination du sexe à la détection de pathogènes, GenDer Lab couvre l'intégralité des besoins génétiques aviaires avec des standards ISO.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -364,7 +358,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <img src="{{ asset('images/how_it_works.png') }}"
-                         alt="Processus de laboratoire BioScan AI" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
+                         alt="Processus de laboratoire GenDer Lab" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
                 </div>
 
                 <div class="space-y-8">
@@ -503,10 +497,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        </div>
-                        <span class="font-outfit font-black text-xl">BioScan <span class="text-bio-400">AI</span></span>
+                        <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-12 w-auto">
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
                         Plateforme de génétique moléculaire avancée pour le sexage et la détection de pathogènes aviaires. Précision 99.9%, rapports certifiés.
@@ -536,7 +527,7 @@
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-600 text-sm">© {{ date('Y') }} BioScan AI — Tous droits réservés.</p>
+                <p class="text-slate-600 text-sm">© {{ date('Y') }} GenDer Lab — Tous droits réservés.</p>
                 <div class="flex gap-6 text-slate-600 text-sm">
                     <a href="#" class="hover:text-white transition">Mentions légales</a>
                     <a href="#" class="hover:text-white transition">Confidentialité</a>

@@ -32,10 +32,10 @@
         <!-- Header -->
         <div class="flex justify-between items-start border-b-2 border-indigo-600 pb-6 mb-6">
             <div>
-                <h1 class="text-3xl font-black text-indigo-800 tracking-tight">BioScan AI</h1>
+                <h1 class="text-3xl font-black text-indigo-800 tracking-tight">GenDer Lab</h1>
                 <p class="text-xs text-gray-500 uppercase font-bold tracking-widest mt-1">Laboratoire de Biotechnologie</p>
                 <p class="text-sm text-gray-500 mt-2">123 Avenue de la Science, Paris, 75000</p>
-                <p class="text-sm text-gray-500">contact@bioscan-ai.com | +33 1 23 45 67 89</p>
+                <p class="text-sm text-gray-500">contact@gender-lab.com | +33 1 23 45 67 89</p>
             </div>
             <div class="text-right">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data={{ $sample->qr_code }}" alt="QR Code" class="inline-block" />
@@ -98,7 +98,7 @@
             <div class="text-center">
                 <p class="text-sm text-gray-600 mb-2">Validé par : <strong>{{ $sample->result->biologist->name ?? 'Dr. Expert' }}</strong></p>
                 <div class="font-signature text-3xl text-blue-900 border-2 border-indigo-100 px-8 py-2 rounded -rotate-3 opacity-80 inline-block bg-indigo-50/50">
-                    BioScan Validated
+                    GenDer Lab Validated
                 </div>
             </div>
         </div>

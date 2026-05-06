@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'BioScan AI') }} — Authentification</title>
+        <title>{{ config('app.name', 'GenDer Lab') }} — Authentification</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,12 +50,10 @@
         <div class="w-full sm:max-w-md">
             <div class="text-center mb-10">
                 <a href="/" class="inline-flex items-center gap-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-bio-400 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
+                    <img src="{{ asset('images/logo.jpg') }}" alt="GenDer Lab Logo" class="h-16 w-auto">
                 </a>
-                <h1 class="mt-4 font-outfit font-black text-2xl text-white">BioScan <span class="text-bio-400">AI</span></h1>
-                <p class="text-white/40 text-sm mt-1 uppercase tracking-widest font-bold">Génétique Avancée</p>
+                <h1 class="mt-4 font-outfit font-black text-2xl text-white">GenDer Lab</h1>
+                <p class="text-white/40 text-sm mt-1 uppercase tracking-widest font-bold">Molecular Bird Sexing</p>
             </div>
 
             <div class="glass rounded-[2rem] p-8 sm:p-10 shadow-2xl relative overflow-hidden">
@@ -66,7 +64,7 @@
             </div>
             
             <p class="text-center mt-8 text-white/30 text-xs">
-                © {{ date('Y') }} BioScan AI. Tous droits réservés.
+                © {{ date('Y') }} GenDer Lab. Tous droits réservés.
             </p>
         </div>
     </body>
