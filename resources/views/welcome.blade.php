@@ -19,16 +19,21 @@
                     },
                     colors: {
                         bio: {
-                            50: '#eefbf3',
-                            100: '#d6f5e3',
-                            200: '#b0e9ca',
-                            300: '#7dd7aa',
-                            400: '#48bd85',
-                            500: '#26a069',
-                            600: '#188054',
-                            700: '#146645',
-                            800: '#125138',
-                            900: '#10432f',
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        brand: {
+                            blue: '#0084ff',
+                            green: '#4ade80',
+                            cyan: '#22d3ee',
                         }
                     }
                 }
@@ -47,7 +52,7 @@
         }
         .float-animation { animation: float 5s ease-in-out infinite; }
         .hero-bg {
-            background: linear-gradient(135deg, #0a1628 0%, #0d2040 40%, #0f2d4a 70%, #0a1e35 100%);
+            background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #0c4a6e 100%);
         }
         .glass {
             background: rgba(255,255,255,0.06);
@@ -57,7 +62,7 @@
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.15); }
         .gradient-text {
-            background: linear-gradient(135deg, #4ade80, #22d3ee, #818cf8);
+            background: linear-gradient(135deg, #4ade80, #0084ff, #22d3ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -70,7 +75,7 @@
             text-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
         }
         .btn-premium {
-            background: linear-gradient(135deg, #26a069 0%, #10432f 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #0084ff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -133,7 +138,7 @@
             top: -3px;
         }
         .dna-step::before { left: -5px; }
-        .dna-step::after { right: -5px; background: #818cf8; }
+        .dna-step::after { right: -5px; background: #0084ff; }
 
         @keyframes dna-rotate {
             0% { transform: scaleX(1) rotate(0deg); opacity: 1; }
