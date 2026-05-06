@@ -55,14 +55,21 @@
             background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #0c4a6e 100%);
         }
         .glass {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.15); }
+        .card-hover { 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .card-hover:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
         .gradient-text {
-            background: linear-gradient(135deg, #4ade80, #0084ff, #22d3ee);
+            background: linear-gradient(135deg, #4ade80 0%, #0084ff 50%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -141,9 +148,9 @@
         .dna-step::after { right: -5px; background: #0084ff; }
 
         @keyframes dna-rotate {
-            0% { transform: scaleX(1) rotate(0deg); opacity: 1; }
-            50% { transform: scaleX(-1) rotate(180deg); opacity: 0.3; }
-            100% { transform: scaleX(1) rotate(360deg); opacity: 1; }
+            0% { transform: scaleX(1) rotate(0deg); opacity: 1; filter: blur(0px); }
+            50% { transform: scaleX(-1) rotate(180deg); opacity: 0.3; filter: blur(1px); }
+            100% { transform: scaleX(1) rotate(360deg); opacity: 1; filter: blur(0px); }
         }
     </style>
 </head>
@@ -153,7 +160,7 @@
     <nav id="navbar" class="fixed top-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-18 py-4">
             <a href="/" class="inline-flex items-center gap-3">
-                <img src="{{ asset('images/logo.png') }}" alt="GenDer Lab Logo" class="h-20 w-auto">
+                <img src="{{ asset('images/logo.png') }}" alt="GenDer Lab Logo" class="h-20 w-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 transition duration-300">
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-white/70 hover:text-white text-sm font-medium transition">Services</a>
@@ -190,9 +197,9 @@
                         <div class="w-2 h-2 bg-bio-400 rounded-full animate-pulse"></div>
                         Laboratoire Certifié ISO — Précision 99.9%
                     </div>
-                    <h1 class="font-outfit font-black text-5xl lg:text-7xl xl:text-8xl text-white leading-[0.95] mb-8 tracking-tighter italic">
-                        SEXAGE <br>
-                        <span class="gradient-text">MOLÉCULAIRE</span>
+                    <h1 class="font-outfit font-black text-5xl lg:text-7xl xl:text-8xl text-white leading-[0.95] mb-8 tracking-tighter uppercase">
+                        LABORATOIRE <br>
+                        <span class="gradient-text">GÉNÉTIQUE</span>
                     </h1>
                     <p class="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-xl font-medium">
                         La sentinelle génétique de votre élevage. Détermination du sexe <span class="text-bio-400 font-bold">Infaillible</span> pour espèces monomorphes via technologie <span class="underline decoration-bio-500/50 underline-offset-4">Gold Standard PCR</span>. 
@@ -298,18 +305,18 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 card-hover group">
-                    <div class="h-48 overflow-hidden relative">
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-slate-100 card-hover group">
+                    <div class="h-56 overflow-hidden relative">
                         <img src="{{ asset('images/service_sexage.png') }}" 
-                             alt="Sexage ADN Oiseaux" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-white font-black font-outfit text-lg">Sexage ADN</span>
+                             alt="Sexage ADN Oiseaux" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+                        <span class="absolute bottom-6 left-6 text-white font-black font-outfit text-xl uppercase tracking-tight italic">Sexage ADN</span>
                     </div>
-                    <div class="p-6">
-                        <p class="text-slate-500 text-sm leading-relaxed mb-4">Détermination génétique du sexe pour espèces monomorphes — la méthode la plus sûre, sans stress pour l'animal.</p>
-                        <div class="flex items-center gap-2 text-bio-600 font-bold text-sm">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path></svg>
-                            Plumes / Sang / Coquilles d'œufs
+                    <div class="p-8">
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-medium">Détermination génétique du sexe pour espèces monomorphes — la méthode la plus sûre et rapide.</p>
+                        <div class="flex items-center gap-3 text-bio-600 font-bold text-xs uppercase tracking-widest">
+                            <div class="w-2 h-2 bg-bio-400 rounded-full"></div>
+                            Plumes / Sang / Coquilles
                         </div>
                     </div>
                 </div>
